@@ -7,10 +7,7 @@ import co.com.sofka.heladeria.domain.genericValues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
-import co.com.sofka.heladeria.domain.pedido.events.CajeroAñadido;
-import co.com.sofka.heladeria.domain.pedido.events.ClienteAñadido;
-import co.com.sofka.heladeria.domain.pedido.events.HeladeroAñadido;
-import co.com.sofka.heladeria.domain.pedido.events.PedidoCreado;
+import co.com.sofka.heladeria.domain.pedido.events.*;
 import co.com.sofka.heladeria.domain.pedido.values.*;
 
 import java.util.List;
@@ -59,6 +56,10 @@ public class Pedido extends AggregateEvent<IdPedido> {
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(telefono);
         appendChange(new ClienteAñadido(idCliente,nombre,telefono)).apply();
+    }
+
+    public void añadirBonoDescuento(IdCliente idCliente){
+        appendChange(new bonoDescuentoAñadido(idCliente)).apply();
     }
 
     public void añadirMensajeHeladero(Heladero heladero){
