@@ -3,23 +3,23 @@ package co.com.sofka.heladeria.domain.pedido.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.genericValues.Nombre;
 import co.com.sofka.heladeria.domain.genericValues.Telefono;
-import co.com.sofka.heladeria.domain.pedido.values.IdHeladero;
+import co.com.sofka.heladeria.domain.pedido.values.IdHelado;
 
 public class HeladeroAñadido extends DomainEvent {
 
-    private final IdHeladero idHeladero;
+    private final IdHelado idHelado;
     private final Nombre nombre;
     private final Telefono telefono;
 
-    public HeladeroAñadido(IdHeladero idHeladero, Nombre nombre, Telefono telefono) {
+    public HeladeroAñadido(IdHelado idHelado, Nombre nombre, Telefono telefono) {
         super("sofka.heladeria.domain.pedido.heladeroañadido");
-        this.idHeladero = idHeladero;
+        this.idHelado = idHelado;
         this.nombre = nombre;
         this.telefono = telefono;
     }
 
-    public IdHeladero getIdHeladero() {
-        return idHeladero;
+    public IdHelado getIdHeladero() {
+        return idHelado;
     }
 
     public Nombre getNombre() {

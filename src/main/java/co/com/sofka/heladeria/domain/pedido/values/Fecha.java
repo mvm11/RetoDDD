@@ -2,45 +2,46 @@ package co.com.sofka.heladeria.domain.pedido.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Fecha implements ValueObject<String> {
 
-    private final String fecha;
+    private final LocalDate date;
+    private final String value;
 
-    public Fecha() {
-        this.fecha =  Objects.requireNonNull(fechaHora());
-        if(this.fecha.isBlank()){
-            throw new IllegalArgumentException("La fecha no puede estar vacía");
+    public Fecha(int day, int month, int year) {
+        try{
+            date = LocalDate.of(year,month,day);
+            if(date.isBefore(LocalDate.now())){
+                throw new IllegalArgumentException("Fecha es anterior a la actual");}
+        }catch (DateTimeException ex){
+            throw  new IllegalArgumentException(ex.getMessage());
         }
+        value = generarFormato();
     }
 
-    public String fechaHora() {
-        Fecha HoraYFecha = new Fecha();
-        SimpleDateFormat Format = new SimpleDateFormat("YYYY/MM/DD '-' HH:mm:ss");
-        return Format.format(HoraYFecha);
+    private String generarFormato(){
+        return date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
 
-    public String getFecha() {
-        return fecha;
+    @Override
+    public String value() {
+        return value;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Fecha fecha1 = (Fecha) o;
-        return Objects.equals(fecha, fecha1.fecha);
+        Fecha fecha = (Fecha) o;
+        return Objects.equals(date, fecha.date) && Objects.equals(value, fecha.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fecha);
-    }
-
-    public String value() {
-        return fecha;
+        return Objects.hash(date, value);
     }
 }
-

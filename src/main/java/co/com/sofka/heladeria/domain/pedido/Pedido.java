@@ -6,7 +6,7 @@ import co.com.sofka.heladeria.domain.genericValues.Nombre;
 import co.com.sofka.heladeria.domain.genericValues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
-import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
+import co.com.sofka.heladeria.domain.pedido.entity.Helado;
 import co.com.sofka.heladeria.domain.pedido.events.*;
 import co.com.sofka.heladeria.domain.pedido.values.*;
 
@@ -20,7 +20,7 @@ public class Pedido extends AggregateEvent<IdPedido> {
     protected Fecha fecha;
     protected List <Cajero> cajero;
     protected List <Cliente> cliente;
-    protected List <Heladero> heladero;
+    protected List <Helado> helado;
 
     private Pedido(IdPedido idPedido) {
         super(idPedido);
@@ -38,11 +38,11 @@ public class Pedido extends AggregateEvent<IdPedido> {
         return pedido;
     }
 
-    public void añadirHeladero(IdHeladero idHeladero, Nombre nombre, Telefono telefono){
-        Objects.requireNonNull(idHeladero);
+    public void añadirHeladero(IdHelado idHelado, Nombre nombre, Telefono telefono){
+        Objects.requireNonNull(idHelado);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(telefono);
-        appendChange(new HeladeroAñadido(idHeladero,nombre,telefono)).apply();
+        appendChange(new HeladeroAñadido(idHelado,nombre,telefono)).apply();
     }
 
     public void añadirCajero(IdCajero idCajero, Nombre nombre, Telefono telefono){
@@ -60,8 +60,8 @@ public class Pedido extends AggregateEvent<IdPedido> {
     }
 
 
-    public void EliminarHeladero(Heladero heladero){
-        appendChange(new HeladeroEliminado(heladero)).apply();
+    public void EliminarHeladero(Helado helado){
+        appendChange(new HeladeroEliminado(helado)).apply();
     }
 
 
@@ -91,8 +91,8 @@ public class Pedido extends AggregateEvent<IdPedido> {
         return cliente;
     }
 
-    public List<Heladero> getHeladero() {
-        return heladero;
+    public List<Helado> getHeladero() {
+        return helado;
     }
 
     public IdPedido getIdPedido() {

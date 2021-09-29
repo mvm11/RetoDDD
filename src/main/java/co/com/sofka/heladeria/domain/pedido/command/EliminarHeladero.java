@@ -1,18 +1,17 @@
 package co.com.sofka.heladeria.domain.pedido.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
-import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
+import co.com.sofka.heladeria.domain.pedido.entity.Helado;
 
 public class EliminarHeladero implements Command {
 
-    Heladero heladero;
+    Helado helado;
 
-    public EliminarHeladero(Heladero heladero) {
-        this.heladero = heladero;
+    public EliminarHeladero(Helado helado) {
+        this.helado = helado;
     }
 
-    public Heladero getHeladero() {
-        return heladero;
+    public Helado getHeladero() {
+        return helado;
     }
 }

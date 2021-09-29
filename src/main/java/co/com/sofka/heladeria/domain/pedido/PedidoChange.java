@@ -3,7 +3,7 @@ package co.com.sofka.heladeria.domain.pedido;
 import co.com.sofka.domain.generic.EventChange;
 import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
-import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
+import co.com.sofka.heladeria.domain.pedido.entity.Helado;
 import co.com.sofka.heladeria.domain.pedido.events.*;
 import co.com.sofka.heladeria.domain.pedido.values.BonoDescuento;
 
@@ -21,11 +21,11 @@ public class PedidoChange extends EventChange {
         });
 
         apply((HeladeroAñadido event) -> {
-            int numHeladeros = pedido.heladero.size();
+            int numHeladeros = pedido.helado.size();
             if (numHeladeros == 6) {
                 throw new IllegalArgumentException("No puedes tener más de 6 heladeros");
             }
-            pedido.heladero.add(new Heladero(event.getIdHeladero(), event.getNombre(), event.getTelefono()));
+            pedido.helado.add(new Helado(event.getIdHeladero(), event.getNombre(), event.getTelefono()));
         });
 
         apply((CajeroAñadido event) -> {
