@@ -1,21 +1,21 @@
-package co.com.sofka.heladeria.domain.pedido.command;
+package co.com.sofka.heladeria.domain.pedido.events;
 
-import co.com.sofka.domain.generic.Command;
-import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
-import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
 import co.com.sofka.heladeria.domain.pedido.values.Fecha;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 import co.com.sofka.heladeria.domain.pedido.values.Orden;
 
-public class CrearPedido implements Command {
+public class PedidoCreado extends DomainEvent {
+
 
     private final IdPedido idPedido;
     private final Fecha fecha;
     private final Orden orden;
     private final Cliente cliente;
 
-    public CrearPedido(IdPedido idPedido, Fecha fecha, Orden orden, Cliente cliente) {
+    public PedidoCreado(IdPedido idPedido, Fecha fecha, Orden orden, Cliente cliente) {
+        super("domain.pedido.pedidocreado");
         this.idPedido = idPedido;
         this.fecha = fecha;
         this.orden = orden;

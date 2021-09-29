@@ -2,9 +2,13 @@ package co.com.sofka.heladeria.domain.pedido;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.heladeria.domain.genericValues.Nombre;
+import co.com.sofka.heladeria.domain.genericValues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
+import co.com.sofka.heladeria.domain.pedido.events.ClienteAñadido;
+import co.com.sofka.heladeria.domain.pedido.events.PedidoCreado;
 import co.com.sofka.heladeria.domain.pedido.values.Fecha;
 import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
@@ -26,9 +30,9 @@ public class Pedido extends AggregateEvent<IdPedido> {
         subscribe(new PedidoChange(this));
     }
 
-    public Pedido(IdPedido idPedido, Orden orden,  Fecha fecha) {
+    public Pedido(IdPedido idPedido, Fecha fecha, Orden orden, Cliente cliente) {
         super(idPedido);
-        appendChange(new PedidoCreado(idPedido, idPedido, fecha)).apply();
+        appendChange(new PedidoCreado(idPedido, fecha, orden, cliente)).apply();
     }
 
     public static Pedido from(IdPedido idPedido, List<DomainEvent> events) {
