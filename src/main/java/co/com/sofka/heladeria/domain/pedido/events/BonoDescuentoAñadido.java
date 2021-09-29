@@ -3,10 +3,10 @@ package co.com.sofka.heladeria.domain.pedido.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
 
-public class bonoDescuentoAñadido extends DomainEvent {
+public class BonoDescuentoAñadido extends DomainEvent {
     private final IdCliente idCliente;
 
-    public bonoDescuentoAñadido(IdCliente idCliente) {
+    public BonoDescuentoAñadido(IdCliente idCliente) {
         super("sofka.heladeria.domain.pedido.bonodescuentoañadido");
         this.idCliente = idCliente;
     }

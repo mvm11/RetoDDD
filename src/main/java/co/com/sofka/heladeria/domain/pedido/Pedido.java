@@ -15,13 +15,14 @@ import java.util.Objects;
 
 public class Pedido extends AggregateEvent<IdPedido> {
 
+    protected IdPedido idPedido;
     protected Orden orden;
     protected Fecha fecha;
-    protected Cajero cajero;
-    protected Cliente cliente;
-    protected Heladero heladero;
+    protected List <Cajero> cajero;
+    protected List <Cliente> cliente;
+    protected List <Heladero> heladero;
 
-    public Pedido(IdPedido idPedido) {
+    private Pedido(IdPedido idPedido) {
         super(idPedido);
         subscribe(new PedidoChange(this));
     }
@@ -58,20 +59,9 @@ public class Pedido extends AggregateEvent<IdPedido> {
         appendChange(new ClienteAñadido(idCliente,nombre,telefono)).apply();
     }
 
-    public void añadirBonoDescuento(IdCliente idCliente){
-        appendChange(new bonoDescuentoAñadido(idCliente)).apply();
-    }
 
-    public void añadirMensajeHeladero(Heladero heladero){
-        appendChange(new MensajeHeladeroCreado(heladero)).apply();
-    }
-
-    public void añadirMensajeCajero(Cajero cajero){
-        appendChange(new MensajeCajeroCreado(cajero)).apply();
-    }
-
-    public void añadirMensajeCliente(Cliente cliente){
-        appendChange(new MensajeClienteCreado(cliente)).apply();
+    public void EliminarHeladero(Heladero heladero){
+        appendChange(new HeladeroEliminado(heladero)).apply();
     }
 
 
@@ -79,6 +69,10 @@ public class Pedido extends AggregateEvent<IdPedido> {
         Objects.requireNonNull(idPedido);
         Objects.requireNonNull(orden);
         appendChange(new OrdenCambiada(idPedido, orden)).apply();
+    }
+
+    public void añadirBonoDescuento(IdCliente idCliente){
+        appendChange(new BonoDescuentoAñadido(idCliente)).apply();
     }
 
     public Orden getOrden() {
@@ -89,15 +83,19 @@ public class Pedido extends AggregateEvent<IdPedido> {
         return fecha;
     }
 
-    public Cajero getCajero() {
+    public List<Cajero> getCajero() {
         return cajero;
     }
 
-    public Cliente getCliente() {
+    public List<Cliente> getCliente() {
         return cliente;
     }
 
-    public Heladero getHeladero() {
+    public List<Heladero> getHeladero() {
         return heladero;
+    }
+
+    public IdPedido getIdPedido() {
+        return idPedido;
     }
 }

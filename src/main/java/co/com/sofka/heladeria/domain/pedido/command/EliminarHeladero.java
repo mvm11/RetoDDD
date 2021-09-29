@@ -4,18 +4,12 @@ import co.com.sofka.domain.generic.Command;
 import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 
-public class AñadirMensajeHeladero implements Command {
+public class EliminarHeladero implements Command {
 
-    IdPedido idPedido;
     Heladero heladero;
 
-    public AñadirMensajeHeladero(IdPedido idPedido, Heladero heladero) {
-        this.idPedido = idPedido;
+    public EliminarHeladero(Heladero heladero) {
         this.heladero = heladero;
-    }
-
-    public IdPedido getIdPedido() {
-        return idPedido;
     }
 
     public Heladero getHeladero() {

@@ -29,4 +29,5 @@ public class HeladeroAñadido extends DomainEvent {
     public Telefono getTelefono() {
         return telefono;
     }
+
 }

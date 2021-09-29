@@ -1,9 +1,7 @@
 package co.com.sofka.heladeria.domain.pedido.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
-import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
 import co.com.sofka.heladeria.domain.pedido.values.Fecha;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 import co.com.sofka.heladeria.domain.pedido.values.Orden;
