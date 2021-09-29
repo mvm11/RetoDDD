@@ -1,17 +1,17 @@
 package co.com.sofka.heladeria.domain.pedido.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
+import co.com.sofka.heladeria.domain.pedido.entity.Recibo;
 
 public class CajeroEliminado extends DomainEvent {
-    private final Cajero cajero;
+    private final Recibo recibo;
 
-    public CajeroEliminado(Cajero cajero) {
+    public CajeroEliminado(Recibo recibo) {
         super("sofka.heladeria.domain.pedido.mensajecajerocreado");
-        this.cajero = cajero;
+        this.recibo = recibo;
     }
 
-    public Cajero getCajero() {
-        return cajero;
+    public Recibo getCajero() {
+        return recibo;
     }
 }

@@ -1,24 +1,24 @@
 package co.com.sofka.heladeria.domain.pedido.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
+import co.com.sofka.heladeria.domain.pedido.entity.Recibo;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 
 public class EliminarCajero implements Command {
 
     IdPedido idPedido;
-    Cajero cajero;
+    Recibo recibo;
 
-    public EliminarCajero(IdPedido idPedido, Cajero cajero) {
+    public EliminarCajero(IdPedido idPedido, Recibo recibo) {
         this.idPedido = idPedido;
-        this.cajero = cajero;
+        this.recibo = recibo;
     }
 
     public IdPedido getIdPedido() {
         return idPedido;
     }
 
-    public Cajero getCajero() {
-        return cajero;
+    public Recibo getCajero() {
+        return recibo;
     }
 }

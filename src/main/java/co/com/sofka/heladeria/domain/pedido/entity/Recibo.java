@@ -4,14 +4,16 @@ import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.heladeria.domain.genericValues.Nombre;
 import co.com.sofka.heladeria.domain.genericValues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.values.IdCajero;
+import co.com.sofka.heladeria.domain.pedido.values.Precio;
 
 
-public class Cajero extends Entity<IdCajero> {
+public class Recibo extends Entity<IdCajero> {
 
+    private Precio precio;
     private Nombre nombre;
     private Telefono telefono;
 
-    public Cajero(IdCajero idCajero, Nombre nombre, Telefono telefono) {
+    public Recibo(IdCajero idCajero, Nombre nombre, Telefono telefono) {
         super(idCajero);
         this.nombre = nombre;
         this.telefono = telefono;

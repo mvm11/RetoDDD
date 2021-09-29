@@ -4,19 +4,19 @@ import co.com.sofka.domain.generic.Command;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.values.Fecha;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
-import co.com.sofka.heladeria.domain.pedido.values.Orden;
+import co.com.sofka.heladeria.domain.pedido.values.DescripcionPedido;
 
 public class CrearPedido implements Command {
 
     private final IdPedido idPedido;
     private final Fecha fecha;
-    private final Orden orden;
+    private final DescripcionPedido descripcionPedido;
     private final Cliente cliente;
 
-    public CrearPedido(IdPedido idPedido, Fecha fecha, Orden orden, Cliente cliente) {
+    public CrearPedido(IdPedido idPedido, Fecha fecha, DescripcionPedido descripcionPedido, Cliente cliente) {
         this.idPedido = idPedido;
         this.fecha = fecha;
-        this.orden = orden;
+        this.descripcionPedido = descripcionPedido;
         this.cliente = cliente;
     }
 
@@ -28,8 +28,8 @@ public class CrearPedido implements Command {
         return fecha;
     }
 
-    public Orden getOrden() {
-        return orden;
+    public DescripcionPedido getOrden() {
+        return descripcionPedido;
     }
 
     public Cliente getCliente() {

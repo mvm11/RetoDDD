@@ -4,21 +4,20 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Sabor implements ValueObject<String> {
-    private final String value;
+public class Precio implements ValueObject<Integer> {
 
-    public Sabor(String value) {
+    private final int value;
+
+    public Precio(int value) {
         this.value = value;
-        if (this.value.isBlank()) {
-            throw new IllegalArgumentException("El sabor no puede estar vacío");
-        }
     }
 
-    public String value() {
+    public int getValue() {
         return value;
     }
 
-    public String getValue() {
+
+    public Integer value() {
         return value;
     }
 
@@ -26,8 +25,8 @@ public class Sabor implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Sabor sabor = (Sabor) o;
-        return Objects.equals(value, sabor.value);
+        Precio precio = (Precio) o;
+        return value == precio.value;
     }
 
     @Override

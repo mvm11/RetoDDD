@@ -1,7 +1,7 @@
 package co.com.sofka.heladeria.domain.pedido;
 
 import co.com.sofka.domain.generic.EventChange;
-import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
+import co.com.sofka.heladeria.domain.pedido.entity.Recibo;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Helado;
 import co.com.sofka.heladeria.domain.pedido.events.*;
@@ -16,24 +16,24 @@ public class PedidoChange extends EventChange {
         apply((PedidoCreado event) -> {
             pedido.idPedido = event.getIdPedido();
             pedido.fecha = event.getFecha();
-            pedido.orden = event.getOrden();
+            pedido.descripcionPedido = event.getOrden();
             pedido.cliente = new ArrayList<Cliente>();
         });
 
-        apply((HeladeroAñadido event) -> {
+        apply((HeladoAñadido event) -> {
             int numHeladeros = pedido.helado.size();
             if (numHeladeros == 6) {
                 throw new IllegalArgumentException("No puedes tener más de 6 heladeros");
             }
-            pedido.helado.add(new Helado(event.getIdHeladero(), event.getNombre(), event.getTelefono()));
+            pedido.helado.add(new Helado(event.getIdHelado(), event.getSabor()));
         });
 
         apply((CajeroAñadido event) -> {
-            int numCajeros = pedido.cajero.size();
+            int numCajeros = pedido.recibo.size();
             if (numCajeros == 6) {
                 throw new IllegalArgumentException("No puedes tener más de 6 cajeros");
             }
-            pedido.cajero.add(new Cajero(event.getIdCajero(), event.getNombre(), event.getTelefono()));
+            pedido.recibo.add(new Recibo(event.getIdCajero(), event.getNombre(), event.getTelefono()));
         });
 
         apply((ClienteAñadido event) -> {
