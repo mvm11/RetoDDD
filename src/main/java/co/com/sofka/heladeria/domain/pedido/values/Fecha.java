@@ -11,6 +11,9 @@ public class Fecha implements ValueObject<String> {
 
     public Fecha() {
         this.fecha =  Objects.requireNonNull(fechaHora());
+        if(this.fecha.isBlank()){
+            throw new IllegalArgumentException("La fecha no puede estar vacía");
+        }
     }
 
     public String fechaHora() {
@@ -36,8 +39,6 @@ public class Fecha implements ValueObject<String> {
         return Objects.hash(fecha);
     }
 
-
-    @Override
     public String value() {
         return fecha;
     }
