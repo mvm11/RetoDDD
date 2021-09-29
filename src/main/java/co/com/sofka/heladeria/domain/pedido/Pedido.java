@@ -7,12 +7,11 @@ import co.com.sofka.heladeria.domain.genericValues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.entity.Cajero;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
+import co.com.sofka.heladeria.domain.pedido.events.CajeroAñadido;
 import co.com.sofka.heladeria.domain.pedido.events.ClienteAñadido;
+import co.com.sofka.heladeria.domain.pedido.events.HeladeroAñadido;
 import co.com.sofka.heladeria.domain.pedido.events.PedidoCreado;
-import co.com.sofka.heladeria.domain.pedido.values.Fecha;
-import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
-import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
-import co.com.sofka.heladeria.domain.pedido.values.Orden;
+import co.com.sofka.heladeria.domain.pedido.values.*;
 
 import java.util.List;
 import java.util.Objects;

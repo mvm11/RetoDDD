@@ -15,7 +15,7 @@ public class PedidoCreado extends DomainEvent {
     private final Cliente cliente;
 
     public PedidoCreado(IdPedido idPedido, Fecha fecha, Orden orden, Cliente cliente) {
-        super("domain.pedido.pedidocreado");
+        super("sofka.heladeria.domain.pedido.pedidocreado");
         this.idPedido = idPedido;
         this.fecha = fecha;
         this.orden = orden;
