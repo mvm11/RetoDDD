@@ -2,6 +2,7 @@ package co.com.sofka.heladeria.domain.pedido;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 
 import java.util.List;
