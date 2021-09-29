@@ -21,23 +21,28 @@
 		<dependency>
 			<groupId>co.com.sofka</groupId>
 			<artifactId>domain</artifactId>
-			<version>1.5.0</version>
+			<version>0.7.6</version>
 		</dependency>
+
 		<dependency>
 			<groupId>co.com.sofka</groupId>
 			<artifactId>business</artifactId>
-			<version>1.5.0</version>
+			<version>0.7.6</version>
 		</dependency>
+
 		<dependency>
 			<groupId>co.com.sofka</groupId>
 			<artifactId>infrastructure</artifactId>
-			<version>1.5.0</version>
+			<version>0.7.6</version>
 		</dependency>
+
 		<dependency>
 			<groupId>co.com.sofka</groupId>
 			<artifactId>application</artifactId>
-			<version>1.5.0</version>
+			<version>0.7.6</version>
 		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
