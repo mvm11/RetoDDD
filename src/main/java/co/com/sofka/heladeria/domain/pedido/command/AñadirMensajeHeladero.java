@@ -2,7 +2,6 @@ package co.com.sofka.heladeria.domain.pedido.command;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.heladeria.domain.pedido.entity.Heladero;
-import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 
 public class AñadirMensajeHeladero implements Command {
