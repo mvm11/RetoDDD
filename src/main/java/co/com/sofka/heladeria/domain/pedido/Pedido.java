@@ -75,10 +75,10 @@ public class Pedido extends AggregateEvent<IdPedido> {
     }
 
 
-    public void cambiarOrden(IdOrden idOrden, Orden orden){
-        Objects.requireNonNull(idOrden);
+    public void cambiarOrden(IdPedido idPedido, Orden orden){
+        Objects.requireNonNull(idPedido);
         Objects.requireNonNull(orden);
-        appendChange(new OrdenCambiada(idOrden, orden)).apply();
+        appendChange(new OrdenCambiada(idPedido, orden)).apply();
     }
 
     public Orden getOrden() {
