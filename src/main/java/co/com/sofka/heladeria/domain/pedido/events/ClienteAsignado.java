@@ -13,7 +13,6 @@ public class ClienteAsignado extends DomainEvent {
     private final Nombre nombre;
     private final Telefono telefono;
 
-
     public ClienteAsignado(IdPedido idPedido, IdCliente idCliente, Nombre nombre, Telefono telefono) {
         super("sofka.heladeria.domain.pedido.clienteasignado");
         this.idPedido = idPedido;
@@ -21,6 +20,8 @@ public class ClienteAsignado extends DomainEvent {
         this.nombre = nombre;
         this.telefono = telefono;
     }
+
+
 
     public IdPedido getIdPedido() {
         return idPedido;

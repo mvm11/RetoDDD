@@ -50,7 +50,7 @@ public class Pedido extends AggregateEvent<IdPedido> {
     }
 
     public void asignarCliente(IdPedido idPedido, IdCliente idCliente, Nombre nombre, Telefono telefono){
-        appendChange(new ClienteAsignado(idPedido, idCliente, nombre, telefono)).apply();
+        appendChange(new ClienteAsignado(idPedido, idCliente,nombre,telefono)).apply();
     }
 
     public void cambiarDescripcionPedido(IdPedido idPedido, DescripcionPedido descripcionPedido){

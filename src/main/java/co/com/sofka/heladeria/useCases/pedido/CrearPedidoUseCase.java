@@ -8,12 +8,13 @@ import co.com.sofka.heladeria.domain.pedido.command.CrearPedido;
 
 public class CrearPedidoUseCase extends UseCase<RequestCommand<CrearPedido>, ResponseEvents> {
 
-
     @Override
     public void executeUseCase(RequestCommand<CrearPedido> crearPedidoRequestCommand) {
         var command = crearPedidoRequestCommand.getCommand();
-        var pedido = new Pedido(command.getIdPedido(), command.getFecha(), command.getOrden(), command.getCliente());
-        pedido.asignarCliente(command.getIdPedido(), command.getCliente().identity(), command.getCliente().getNombre(), command.getCliente().getTelefono());
-        emit().onResponse(new ResponseEvents(pedido.getUncommittedChanges()));
+        var pedido = new Pedido(command.getIdPedido(),
+                                command.getFecha(),
+                                command.getOrden(),
+                                command.getCliente());
+        emit().onSuccess(new ResponseEvents(pedido.getUncommittedChanges()));
     }
 }
