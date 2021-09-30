@@ -4,8 +4,6 @@ import co.com.sofka.domain.generic.EventChange;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Helado;
 import co.com.sofka.heladeria.domain.pedido.events.*;
-import co.com.sofka.heladeria.domain.pedido.values.BonoDescuento;
-import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 
 public class PedidoChange extends EventChange {
 
