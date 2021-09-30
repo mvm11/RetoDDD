@@ -12,7 +12,7 @@ public class PedidoChange extends EventChange {
         apply((PedidoCreado event) -> {
             pedido.idPedido = event.getIdPedido();
             pedido.fecha = event.getFecha();
-            pedido.descripcionPedido = event.getOrden();
+            pedido.descripcion = event.getOrden();
             pedido.cliente = event.getCliente();
         });
 
@@ -32,8 +32,8 @@ public class PedidoChange extends EventChange {
             pedido.cliente = new Cliente(event.getIdCliente(), event.getNombre(), event.getTelefono());
         });
 
-        apply((DescripcionOrdenCambiada event) -> {
-            pedido.descripcionPedido = event.getDescripcionPedido();
+        apply((DescripcionCambiada event) -> {
+            pedido.descripcion = event.getDescripcionPedido();
         });
 
         apply((FechaCambiada event) -> {

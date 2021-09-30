@@ -4,10 +4,10 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class DescripcionPedido implements ValueObject<String> {
+public class Descripcion implements ValueObject<String> {
     private final String value;
 
-    public DescripcionPedido(String value) {
+    public Descripcion(String value) {
         this.value = Objects.requireNonNull(value);
         if (this.value.isBlank()) {
             throw new IllegalArgumentException("La orden no puede estar vacía");
@@ -22,8 +22,8 @@ public class DescripcionPedido implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DescripcionPedido descripcionPedido = (DescripcionPedido) o;
-        return Objects.equals(value, descripcionPedido.value);
+        Descripcion descripcion = (Descripcion) o;
+        return Objects.equals(value, descripcion.value);
     }
 
     @Override

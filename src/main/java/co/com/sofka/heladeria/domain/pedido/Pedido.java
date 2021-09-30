@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Pedido extends AggregateEvent<IdPedido> {
 
     protected IdPedido idPedido;
-    protected DescripcionPedido descripcionPedido;
+    protected Descripcion descripcion;
     protected Fecha fecha;
     protected Recibo recibo;
     protected Cliente cliente;
@@ -27,9 +27,9 @@ public class Pedido extends AggregateEvent<IdPedido> {
         subscribe(new PedidoChange(this));
     }
 
-    public Pedido(IdPedido idPedido, Fecha fecha, DescripcionPedido descripcionPedido, Cliente cliente) {
+    public Pedido(IdPedido idPedido, Fecha fecha, Descripcion descripcion, Cliente cliente) {
         super(idPedido);
-        appendChange(new PedidoCreado(idPedido, fecha, descripcionPedido, cliente)).apply();
+        appendChange(new PedidoCreado(idPedido, fecha, descripcion, cliente)).apply();
     }
 
     public static Pedido from(IdPedido idPedido, List<DomainEvent> events) {
@@ -53,10 +53,10 @@ public class Pedido extends AggregateEvent<IdPedido> {
         appendChange(new ClienteAsignado(idPedido, idCliente,nombre,telefono)).apply();
     }
 
-    public void cambiarDescripcionPedido(IdPedido idPedido, DescripcionPedido descripcionPedido){
+    public void cambiarDescripcion(IdPedido idPedido, Descripcion descripcion){
         Objects.requireNonNull(idPedido);
-        Objects.requireNonNull(descripcionPedido);
-        appendChange(new DescripcionOrdenCambiada(idPedido, descripcionPedido)).apply();
+        Objects.requireNonNull(descripcion);
+        appendChange(new DescripcionCambiada(idPedido, descripcion)).apply();
     }
 
     public void cambiarFecha(IdPedido idPedido, Fecha fecha){
@@ -70,8 +70,8 @@ public class Pedido extends AggregateEvent<IdPedido> {
         return idPedido;
     }
 
-    public DescripcionPedido getDescripcionPedido() {
-        return descripcionPedido;
+    public Descripcion getDescripcionPedido() {
+        return descripcion;
     }
 
     public Fecha getFecha() {
