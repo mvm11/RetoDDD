@@ -10,6 +10,7 @@ import co.com.sofka.heladeria.domain.heladeria.values.*;
 import co.com.sofka.heladeria.domain.heladeria.entity.Admin;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesero;
+import co.com.sofka.heladeria.domain.pedido.PedidoChange;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 
 import java.util.List;
