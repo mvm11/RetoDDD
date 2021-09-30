@@ -6,6 +6,8 @@ import co.com.sofka.heladeria.domain.genericValues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.values.BonoDescuento;
 import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
 
+import java.util.Objects;
+
 public class Cliente extends Entity<IdCliente> {
 
     private Nombre nombre;
@@ -36,25 +38,19 @@ public class Cliente extends Entity<IdCliente> {
     }
 
     public void cambiarNombre(Nombre nombre) {
-        setNombre(nombre);
+        this.nombre = Objects.requireNonNull(nombre);
     }
 
     public void cambiarTelefono(Telefono telefono) {
-        setTelefono(telefono);
+        this.telefono = Objects.requireNonNull(telefono);
     }
 
     public void añadirBonoDescuento(BonoDescuento bonoDescuento) {
-        setBonoDescuento(bonoDescuento);
+        this.bonoDescuento = Objects.requireNonNull(bonoDescuento);
     }
-
 
     public BonoDescuento bonoDescuento(BonoDescuento bonoDescuento) {
         return this.bonoDescuento;
     }
-
-    public void setBonoDescuento(BonoDescuento bonoDescuento) {
-        this.bonoDescuento = bonoDescuento;
-    }
-
 
 }

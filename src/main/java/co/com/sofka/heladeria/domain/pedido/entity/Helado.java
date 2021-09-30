@@ -4,6 +4,8 @@ import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.heladeria.domain.pedido.values.IdHelado;
 import co.com.sofka.heladeria.domain.pedido.values.Sabor;
 
+import java.util.Objects;
+
 public class Helado extends Entity<IdHelado> {
 
     private Sabor sabor;
@@ -18,12 +20,8 @@ public class Helado extends Entity<IdHelado> {
         return sabor;
     }
 
-    public void setSabor(Sabor sabor) {
-        this.sabor = sabor;
-    }
-
     public void cambiarSabor(Sabor sabor) {
-        setSabor(sabor);
+        this.sabor = Objects.requireNonNull(sabor);
     }
 
 }

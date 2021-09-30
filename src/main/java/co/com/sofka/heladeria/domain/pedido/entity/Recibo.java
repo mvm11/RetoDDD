@@ -4,6 +4,8 @@ import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.heladeria.domain.pedido.values.IdRecibo;
 import co.com.sofka.heladeria.domain.pedido.values.Precio;
 
+import java.util.Objects;
+
 
 public class Recibo extends Entity<IdRecibo> {
 
@@ -18,11 +20,7 @@ public class Recibo extends Entity<IdRecibo> {
         return precio;
     }
 
-    public void setPrecio(Precio precio) {
-        this.precio = precio;
-    }
-
     public void cambiarPrecio(Precio precio) {
-        setPrecio(precio);
+        this.precio = Objects.requireNonNull(precio);
     }
 }

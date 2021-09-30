@@ -30,18 +30,16 @@ public class PedidoChange extends EventChange {
             pedido.helado.removeIf(helado -> helado.equals(event.getIdHelado()));
         });
 
-        apply((DescripcionOrdenCambiada event) -> {
-            pedido.descripcionPedido = event.getDescripcionPedido();
-        });
-
         apply((ClienteAsignado event) -> {
             pedido.cliente = new Cliente(event.getIdCliente(), event.getNombre(), event.getTelefono());
         });
 
-        apply((BonoDescuentoAñadido event) -> {
-                if (pedido.cliente.identity().equals(event.getIdCliente())) {
-                    pedido.cliente.bonoDescuento(new BonoDescuento(20000));
-                }
+        apply((DescripcionOrdenCambiada event) -> {
+            pedido.descripcionPedido = event.getDescripcionPedido();
+        });
+
+        apply((FechaCambiada event) -> {
+            pedido.fecha = event.getFecha();
         });
     }
 }

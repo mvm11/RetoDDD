@@ -59,9 +59,12 @@ public class Pedido extends AggregateEvent<IdPedido> {
         appendChange(new DescripcionOrdenCambiada(idPedido, descripcionPedido)).apply();
     }
 
-    public void añadirBonoDescuento(IdCliente idCliente){
-        appendChange(new BonoDescuentoAñadido(idCliente)).apply();
+    public void cambiarFecha(IdPedido idPedido, Fecha fecha){
+        Objects.requireNonNull(idPedido);
+        Objects.requireNonNull(fecha);
+        appendChange(new FechaCambiada(idPedido, fecha)).apply();
     }
+
 
     public IdPedido getIdPedido() {
         return idPedido;
