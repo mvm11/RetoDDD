@@ -42,13 +42,13 @@ public class Cliente extends Entity<IdCliente> {
         setTelefono(telefono);
     }
 
+    public void añadirBonoDescuento(BonoDescuento bonoDescuento) {
+        setBonoDescuento(bonoDescuento);
+    }
+
 
     public BonoDescuento bonoDescuento(BonoDescuento bonoDescuento) {
         return this.bonoDescuento;
-    }
-
-    public void añadirBonoDescuento(BonoDescuento bonoDescuento) {
-        setBonoDescuento(bonoDescuento);
     }
 
     public void setBonoDescuento(BonoDescuento bonoDescuento) {

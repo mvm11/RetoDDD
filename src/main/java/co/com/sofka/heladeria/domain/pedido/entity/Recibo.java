@@ -1,45 +1,28 @@
 package co.com.sofka.heladeria.domain.pedido.entity;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.heladeria.domain.genericValues.Nombre;
-import co.com.sofka.heladeria.domain.genericValues.Telefono;
-import co.com.sofka.heladeria.domain.pedido.values.IdCajero;
+import co.com.sofka.heladeria.domain.pedido.values.IdRecibo;
 import co.com.sofka.heladeria.domain.pedido.values.Precio;
 
 
-public class Recibo extends Entity<IdCajero> {
+public class Recibo extends Entity<IdRecibo> {
 
     private Precio precio;
-    private Nombre nombre;
-    private Telefono telefono;
 
-    public Recibo(IdCajero idCajero, Nombre nombre, Telefono telefono) {
-        super(idCajero);
-        this.nombre = nombre;
-        this.telefono = telefono;
+    public Recibo(IdRecibo idRecibo, Precio precio) {
+        super(idRecibo);
+        this.precio = precio;
     }
 
-    public Nombre getNombre() {
-        return nombre;
+    public Precio getPrecio() {
+        return precio;
     }
 
-    public Telefono getTelefono() {
-        return telefono;
+    public void setPrecio(Precio precio) {
+        this.precio = precio;
     }
 
-    public void setNombre(Nombre nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setTelefono(Telefono telefono) {
-        this.telefono = telefono;
-    }
-
-    public void cambiarNombre(Nombre nombre) {
-        setNombre(nombre);
-    }
-
-    public void cambiarTelefono(Telefono telefono) {
-        setTelefono(telefono);
+    public void cambiarPrecio(Precio precio) {
+        setPrecio(precio);
     }
 }

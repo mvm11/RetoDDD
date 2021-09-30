@@ -4,13 +4,13 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 import co.com.sofka.heladeria.domain.pedido.values.DescripcionPedido;
 
-public class OrdenCambiada extends DomainEvent {
+public class DescripcionOrdenCambiada extends DomainEvent {
 
     private final IdPedido idPedido;
     private final DescripcionPedido descripcionPedido;
 
-    public OrdenCambiada(IdPedido idPedido, DescripcionPedido descripcionPedido) {
-        super("sofka.heladeria.domain.pedido.ordencambiada");
+    public DescripcionOrdenCambiada(IdPedido idPedido, DescripcionPedido descripcionPedido) {
+        super("sofka.heladeria.domain.pedido.descripcionordencambiada");
         this.idPedido = idPedido;
         this.descripcionPedido = descripcionPedido;
     }
@@ -19,7 +19,7 @@ public class OrdenCambiada extends DomainEvent {
         return idPedido;
     }
 
-    public DescripcionPedido getOrden() {
+    public DescripcionPedido getDescripcionPedido() {
         return descripcionPedido;
     }
 }

@@ -1,19 +1,18 @@
-package co.com.sofka.heladeria.domain.pedido.events;
+package co.com.sofka.heladeria.domain.pedido.command;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import co.com.sofka.heladeria.domain.pedido.values.IdHelado;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 import co.com.sofka.heladeria.domain.pedido.values.Sabor;
-;
 
-public class HeladoAñadido extends DomainEvent {
+public class AñadirHelado implements Command {
+
 
     private final IdPedido idPedido;
     private final IdHelado idHelado;
     private final Sabor sabor;
 
-    public HeladoAñadido(IdPedido idPedido, IdHelado idHelado, Sabor sabor) {
-        super("sofka.heladeria.domain.pedido.heladoañadido");
+    public AñadirHelado(IdPedido idPedido, IdHelado idHelado, Sabor sabor) {
         this.idPedido = idPedido;
         this.idHelado = idHelado;
         this.sabor = sabor;
@@ -31,8 +30,3 @@ public class HeladoAñadido extends DomainEvent {
         return sabor;
     }
 }
-
-
-
-
-

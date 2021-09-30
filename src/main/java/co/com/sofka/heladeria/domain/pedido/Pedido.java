@@ -2,6 +2,8 @@ package co.com.sofka.heladeria.domain.pedido;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.heladeria.domain.genericValues.Nombre;
+import co.com.sofka.heladeria.domain.genericValues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.entity.Recibo;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Helado;
@@ -16,8 +18,8 @@ public class Pedido extends AggregateEvent<IdPedido> {
     protected IdPedido idPedido;
     protected DescripcionPedido descripcionPedido;
     protected Fecha fecha;
-    protected List <Recibo> recibo;
-    protected List <Cliente> cliente;
+    protected Recibo recibo;
+    protected Cliente cliente;
     protected List <Helado> helado;
 
     private Pedido(IdPedido idPedido) {
@@ -36,32 +38,36 @@ public class Pedido extends AggregateEvent<IdPedido> {
         return pedido;
     }
 
-    public void añadirHelado(IdHelado idHelado, Sabor sabor){
+    public void añadirHelado(IdPedido idPedido, IdHelado idHelado, Sabor sabor){
+        Objects.requireNonNull(idPedido);
         Objects.requireNonNull(idHelado);
         Objects.requireNonNull(sabor);
-        appendChange(new HeladoAñadido(idHelado,sabor)).apply();
+        appendChange(new HeladoAñadido(idPedido, idHelado, sabor)).apply();
     }
 
-    public void EliminarHelado(Helado helado){
-        appendChange(new HeladeroEliminado(helado)).apply();
+    public void EliminarHelado(IdPedido idPedido, IdHelado idHelado, Sabor sabor){
+        appendChange(new HeladoEliminado(idPedido, idHelado, sabor)).apply();
     }
 
+    public void asignarCliente(IdPedido idPedido, IdCliente idCliente, Nombre nombre, Telefono telefono){
+        appendChange(new ClienteAsignado(idPedido, idCliente, nombre, telefono)).apply();
+    }
 
     public void cambiarDescripcionPedido(IdPedido idPedido, DescripcionPedido descripcionPedido){
         Objects.requireNonNull(idPedido);
         Objects.requireNonNull(descripcionPedido);
-        appendChange(new OrdenCambiada(idPedido, descripcionPedido)).apply();
-    }
-
-    public void asignarCliente(){
-
+        appendChange(new DescripcionOrdenCambiada(idPedido, descripcionPedido)).apply();
     }
 
     public void añadirBonoDescuento(IdCliente idCliente){
         appendChange(new BonoDescuentoAñadido(idCliente)).apply();
     }
 
-    public DescripcionPedido getOrden() {
+    public IdPedido getIdPedido() {
+        return idPedido;
+    }
+
+    public DescripcionPedido getDescripcionPedido() {
         return descripcionPedido;
     }
 
@@ -69,19 +75,15 @@ public class Pedido extends AggregateEvent<IdPedido> {
         return fecha;
     }
 
-    public List<Recibo> getCajero() {
+    public Recibo getRecibo() {
         return recibo;
     }
 
-    public List<Cliente> getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public List<Helado> getHeladero() {
+    public List<Helado> getHelado() {
         return helado;
-    }
-
-    public IdPedido getIdPedido() {
-        return idPedido;
     }
 }

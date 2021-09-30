@@ -4,16 +4,15 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.pedido.values.IdHelado;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 import co.com.sofka.heladeria.domain.pedido.values.Sabor;
-;
 
-public class HeladoAñadido extends DomainEvent {
+public class HeladoEliminado extends DomainEvent {
 
     private final IdPedido idPedido;
     private final IdHelado idHelado;
     private final Sabor sabor;
 
-    public HeladoAñadido(IdPedido idPedido, IdHelado idHelado, Sabor sabor) {
-        super("sofka.heladeria.domain.pedido.heladoañadido");
+    public HeladoEliminado(IdPedido idPedido, IdHelado idHelado, Sabor sabor) {
+        super("sofka.heladeria.domain.pedido.heladoeliminado");
         this.idPedido = idPedido;
         this.idHelado = idHelado;
         this.sabor = sabor;
@@ -31,8 +30,4 @@ public class HeladoAñadido extends DomainEvent {
         return sabor;
     }
 }
-
-
-
-
 
