@@ -18,6 +18,7 @@ public class Cliente extends Entity<IdCliente> {
         this.telefono = telefono;
     }
 
+
     public Nombre getNombre() {
         return nombre;
     }
