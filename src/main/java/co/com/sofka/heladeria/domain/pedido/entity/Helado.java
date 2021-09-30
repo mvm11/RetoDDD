@@ -15,7 +15,6 @@ public class Helado extends Entity<IdHelado> {
         this.sabor = sabor;
     }
 
-
     public Sabor getSabor() {
         return sabor;
     }

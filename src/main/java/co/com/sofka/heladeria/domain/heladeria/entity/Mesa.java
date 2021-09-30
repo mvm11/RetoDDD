@@ -5,6 +5,9 @@ import co.com.sofka.heladeria.domain.heladeria.values.Color;
 import co.com.sofka.heladeria.domain.heladeria.values.IdMesa;
 import co.com.sofka.heladeria.domain.heladeria.values.Ubicacion;
 
+
+import java.util.Objects;
+
 public class Mesa extends Entity<IdMesa> {
 
     private Color color;
@@ -23,4 +26,12 @@ public class Mesa extends Entity<IdMesa> {
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
+
+    public void cambiarColor(Color color) {
+        this.color = Objects.requireNonNull(color);
+    }
+    public void cambiarSabor(Ubicacion ubicacion) {
+        this.ubicacion = Objects.requireNonNull(ubicacion);
+    }
+
 }
