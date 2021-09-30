@@ -22,6 +22,7 @@ public class PedidoCreado extends DomainEvent {
         this.cliente = cliente;
     }
 
+
     public IdPedido getIdPedido() {
         return idPedido;
     }
