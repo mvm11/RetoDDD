@@ -4,31 +4,31 @@ import co.com.sofka.domain.generic.Command;
 import co.com.sofka.heladeria.domain.genericvalues.Funcion;
 import co.com.sofka.heladeria.domain.genericvalues.Nombre;
 import co.com.sofka.heladeria.domain.genericvalues.Telefono;
-import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
-import co.com.sofka.heladeria.domain.heladeria.values.IdMesero;
+import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
+import co.com.sofka.heladeria.domain.heladeria.values.MeseroId;
 
 public class AñadirMesero implements Command {
 
-    private final IdHeladeria idheladeria;
-    private final IdMesero idMesero;
+    private final HeladeriaId idheladeria;
+    private final MeseroId meseroId;
     private final Nombre nombre;
     private final Telefono telefono;
     private final Funcion funcion;
 
-    public AñadirMesero(IdHeladeria idheladeria, IdMesero idMesero, Nombre nombre, Telefono telefono, Funcion funcion) {
+    public AñadirMesero(HeladeriaId idheladeria, MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion) {
         this.idheladeria = idheladeria;
-        this.idMesero = idMesero;
+        this.meseroId = meseroId;
         this.nombre = nombre;
         this.telefono = telefono;
         this.funcion = funcion;
     }
 
-    public IdHeladeria getIdheladeria() {
+    public HeladeriaId getIdheladeria() {
         return idheladeria;
     }
 
-    public IdMesero getIdMesero() {
-        return idMesero;
+    public MeseroId getIdMesero() {
+        return meseroId;
     }
 
     public Nombre getNombre() {

@@ -2,18 +2,18 @@ package co.com.sofka.heladeria.domain.heladeria.entity;
 
 import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.heladeria.domain.heladeria.values.Color;
-import co.com.sofka.heladeria.domain.heladeria.values.IdMesa;
+import co.com.sofka.heladeria.domain.heladeria.values.MesaId;
 import co.com.sofka.heladeria.domain.heladeria.values.Ubicacion;
 
 
 import java.util.Objects;
 
-public class Mesa extends Entity<IdMesa> {
+public class Mesa extends Entity<MesaId> {
 
     private Color color;
     private Ubicacion ubicacion;
 
-    public Mesa(IdMesa entityId, Color color, Ubicacion ubicacion) {
+    public Mesa(MesaId entityId, Color color, Ubicacion ubicacion) {
         super(entityId);
         this.color = color;
         this.ubicacion = ubicacion;

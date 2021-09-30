@@ -1,17 +1,17 @@
 package co.com.sofka.heladeria.domain.pedido.entity;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.heladeria.domain.pedido.values.IdHelado;
+import co.com.sofka.heladeria.domain.pedido.values.HeladoId;
 import co.com.sofka.heladeria.domain.pedido.values.Sabor;
 
 import java.util.Objects;
 
-public class Helado extends Entity<IdHelado> {
+public class Helado extends Entity<HeladoId> {
 
     private Sabor sabor;
 
-    public Helado(IdHelado idHelado, Sabor sabor) {
-        super(idHelado);
+    public Helado(HeladoId heladoId, Sabor sabor) {
+        super(heladoId);
         this.sabor = sabor;
     }
 

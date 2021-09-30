@@ -6,7 +6,7 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.heladeria.command.CambiarNombreHeladeria;
 import co.com.sofka.heladeria.domain.heladeria.events.HeladeriaCreada;
-import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
+import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
 import co.com.sofka.heladeria.domain.heladeria.values.NombreHeladeria;
 import co.com.sofka.heladeria.domain.heladeria.values.TelefonoHeladeria;
 import co.com.sofka.heladeria.usecase.heladeria.CambiarNombreHeladeriaUseCase;
@@ -37,7 +37,7 @@ public class CambiarNombreHeladeriaUseCaseTest {
     public void cambiarNombreHeladeria() {
 
         var command = new CambiarNombreHeladeria(
-                IdHeladeria.of("11"),
+                HeladeriaId.of("11"),
                 new NombreHeladeria("Soft Touch")
         );
 
@@ -52,7 +52,7 @@ public class CambiarNombreHeladeriaUseCaseTest {
 
     private List<DomainEvent> events() {
         return List.of(
-                new HeladeriaCreada(IdHeladeria.of("11"),s
+                new HeladeriaCreada(HeladeriaId.of("11"),
                         new NombreHeladeria("Almos"),
                         new TelefonoHeladeria("3006107833")
                 ));

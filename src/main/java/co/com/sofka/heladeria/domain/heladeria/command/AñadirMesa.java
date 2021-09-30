@@ -2,30 +2,30 @@ package co.com.sofka.heladeria.domain.heladeria.command;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.heladeria.domain.heladeria.values.Color;
-import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
-import co.com.sofka.heladeria.domain.heladeria.values.IdMesa;
+import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
+import co.com.sofka.heladeria.domain.heladeria.values.MesaId;
 import co.com.sofka.heladeria.domain.heladeria.values.Ubicacion;
 
 public class AñadirMesa implements Command {
 
-    private final IdHeladeria idheladeria;
-    private final IdMesa idMesa;
+    private final HeladeriaId idheladeria;
+    private final MesaId mesaId;
     private final Color color;
     private final Ubicacion ubicacion;
 
-    public AñadirMesa(IdHeladeria idheladeria, IdMesa idMesa, Color color, Ubicacion ubicacion) {
+    public AñadirMesa(HeladeriaId idheladeria, MesaId mesaId, Color color, Ubicacion ubicacion) {
         this.idheladeria = idheladeria;
-        this.idMesa = idMesa;
+        this.mesaId = mesaId;
         this.color = color;
         this.ubicacion = ubicacion;
     }
 
-    public IdHeladeria getIdheladeria() {
+    public HeladeriaId getIdheladeria() {
         return idheladeria;
     }
 
-    public IdMesa getIdMesa() {
-        return idMesa;
+    public MesaId getIdMesa() {
+        return mesaId;
     }
 
     public Color getColor() {

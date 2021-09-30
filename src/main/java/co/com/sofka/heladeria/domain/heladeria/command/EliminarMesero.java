@@ -1,24 +1,24 @@
 package co.com.sofka.heladeria.domain.heladeria.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
-import co.com.sofka.heladeria.domain.heladeria.values.IdMesero;
+import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
+import co.com.sofka.heladeria.domain.heladeria.values.MeseroId;
 
 public class EliminarMesero implements Command {
 
-    private final IdHeladeria idheladeria;
-    private final IdMesero idMesero;
+    private final HeladeriaId idheladeria;
+    private final MeseroId meseroId;
 
-    public EliminarMesero(IdHeladeria idheladeria, IdMesero idMesero) {
+    public EliminarMesero(HeladeriaId idheladeria, MeseroId meseroId) {
         this.idheladeria = idheladeria;
-        this.idMesero = idMesero;
+        this.meseroId = meseroId;
     }
 
-    public IdHeladeria getIdheladeria() {
+    public HeladeriaId getIdheladeria() {
         return idheladeria;
     }
 
-    public IdMesero getIdMesero() {
-        return idMesero;
+    public MeseroId getIdMesero() {
+        return meseroId;
     }
 }

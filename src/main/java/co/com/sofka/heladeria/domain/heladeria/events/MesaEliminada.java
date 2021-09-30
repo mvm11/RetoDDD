@@ -1,25 +1,25 @@
 package co.com.sofka.heladeria.domain.heladeria.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
-import co.com.sofka.heladeria.domain.heladeria.values.IdMesa;
+import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
+import co.com.sofka.heladeria.domain.heladeria.values.MesaId;
 
 public class MesaEliminada extends DomainEvent {
 
-    private final IdHeladeria idheladeria;
-    private final IdMesa idMesa;
+    private final HeladeriaId idheladeria;
+    private final MesaId mesaId;
 
-    public MesaEliminada(IdHeladeria idheladeria, IdMesa idMesa) {
+    public MesaEliminada(HeladeriaId idheladeria, MesaId mesaId) {
         super("sofka.heladeria.heladeria.pedido.mesaeliminada");
         this.idheladeria = idheladeria;
-        this.idMesa = idMesa;
+        this.mesaId = mesaId;
     }
 
-    public IdHeladeria getIdheladeria() {
+    public HeladeriaId getIdheladeria() {
         return idheladeria;
     }
 
-    public IdMesa getIdMesa() {
-        return idMesa;
+    public MesaId getIdMesa() {
+        return mesaId;
     }
 }

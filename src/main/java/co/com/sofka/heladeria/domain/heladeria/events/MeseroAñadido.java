@@ -4,32 +4,32 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.genericvalues.Funcion;
 import co.com.sofka.heladeria.domain.genericvalues.Nombre;
 import co.com.sofka.heladeria.domain.genericvalues.Telefono;
-import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
-import co.com.sofka.heladeria.domain.heladeria.values.IdMesero;
+import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
+import co.com.sofka.heladeria.domain.heladeria.values.MeseroId;
 
 public class MeseroAñadido extends DomainEvent {
 
-    private final IdHeladeria idheladeria;
-    private final IdMesero idMesero;
+    private final HeladeriaId idheladeria;
+    private final MeseroId meseroId;
     private final Nombre nombre;
     private final Telefono telefono;
     private final Funcion funcion;
 
-    public MeseroAñadido(IdHeladeria idheladeria, IdMesero idMesero, Nombre nombre, Telefono telefono, Funcion funcion) {
+    public MeseroAñadido(HeladeriaId idheladeria, MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion) {
         super("sofka.heladeria.heladeria.pedido.meseroañadido");
         this.idheladeria = idheladeria;
-        this.idMesero = idMesero;
+        this.meseroId = meseroId;
         this.nombre = nombre;
         this.telefono = telefono;
         this.funcion = funcion;
     }
 
-    public IdHeladeria getIdheladeria() {
+    public HeladeriaId getIdheladeria() {
         return idheladeria;
     }
 
-    public IdMesero getIdMesero() {
-        return idMesero;
+    public MeseroId getIdMesero() {
+        return meseroId;
     }
 
     public Nombre getNombre() {

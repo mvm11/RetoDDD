@@ -4,18 +4,18 @@ import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.heladeria.domain.genericvalues.Nombre;
 import co.com.sofka.heladeria.domain.genericvalues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.values.BonoDescuento;
-import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
+import co.com.sofka.heladeria.domain.pedido.values.ClienteId;
 
 import java.util.Objects;
 
-public class Cliente extends Entity<IdCliente> {
+public class Cliente extends Entity<ClienteId> {
 
     private Nombre nombre;
     private Telefono telefono;
     private BonoDescuento bonoDescuento;
 
-    public Cliente(IdCliente idCliente, Nombre nombre, Telefono telefono) {
-        super(idCliente);
+    public Cliente(ClienteId clienteId, Nombre nombre, Telefono telefono) {
+        super(clienteId);
         this.nombre = nombre;
         this.telefono = telefono;
     }

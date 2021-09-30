@@ -10,94 +10,94 @@ import co.com.sofka.heladeria.domain.heladeria.values.*;
 import co.com.sofka.heladeria.domain.heladeria.entity.Admin;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesero;
-import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
+import co.com.sofka.heladeria.domain.pedido.values.PedidoId;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class Heladeria extends AggregateEvent<IdHeladeria> {
+public class Heladeria extends AggregateEvent<HeladeriaId> {
 
-    protected IdHeladeria idheladeria;
-    protected Set <IdPedido> idPedidos;
+    protected HeladeriaId idheladeria;
+    protected Set <PedidoId> pedidoIds;
     protected NombreHeladeria nombreHeladeria;
     protected TelefonoHeladeria telefonoHeladeria;
     protected Admin admin;
     protected List <Mesa> mesas;
     protected List <Mesero> meseros;
 
-    private Heladeria(IdHeladeria idheladeria) {
+    private Heladeria(HeladeriaId idheladeria) {
         super(idheladeria);
         subscribe(new HeladeriaChange(this));
     }
 
-    public Heladeria(IdHeladeria idheladeria, NombreHeladeria nombreHeladeria, TelefonoHeladeria telefonoHeladeria) {
+    public Heladeria(HeladeriaId idheladeria, NombreHeladeria nombreHeladeria, TelefonoHeladeria telefonoHeladeria) {
         super(idheladeria);
         appendChange(new HeladeriaCreada(idheladeria, nombreHeladeria, telefonoHeladeria)).apply();
     }
 
-    public static Heladeria from(IdHeladeria idheladeria, List<DomainEvent> events) {
+    public static Heladeria from(HeladeriaId idheladeria, List<DomainEvent> events) {
         var heladeria = new Heladeria(idheladeria);
         events.forEach(heladeria::applyEvent);
         return heladeria;
     }
 
-    public void asignarAdmin(IdHeladeria idheladeria, IdAdmin idAdmin, Nombre nombre, Telefono telefono, Funcion funcion){
+    public void asignarAdmin(HeladeriaId idheladeria, AdminId adminId, Nombre nombre, Telefono telefono, Funcion funcion){
         Objects.requireNonNull(idheladeria);
-        Objects.requireNonNull(idAdmin);
+        Objects.requireNonNull(adminId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(telefono);
         Objects.requireNonNull(funcion);
-        appendChange(new AdminAsignado(idheladeria, idAdmin,nombre,telefono,funcion)).apply();
+        appendChange(new AdminAsignado(idheladeria, adminId,nombre,telefono,funcion)).apply();
     }
 
-    public void añadirMesero(IdHeladeria idheladeria, IdMesero idMesero, Nombre nombre, Telefono telefono, Funcion funcion){
+    public void añadirMesero(HeladeriaId idheladeria, MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion){
         Objects.requireNonNull(idheladeria);
-        Objects.requireNonNull(idMesero);
+        Objects.requireNonNull(meseroId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(telefono);
         Objects.requireNonNull(funcion);
-        appendChange(new MeseroAñadido(idheladeria,idMesero,nombre,telefono,funcion)).apply();
+        appendChange(new MeseroAñadido(idheladeria, meseroId,nombre,telefono,funcion)).apply();
     }
 
-    public void eliminarMesero(IdHeladeria idheladeria, IdMesero idMesero){
+    public void eliminarMesero(HeladeriaId idheladeria, MeseroId meseroId){
         Objects.requireNonNull(idheladeria);
-        Objects.requireNonNull(idMesero);
-        appendChange(new MeseroEliminado(idheladeria, idMesero)).apply();
+        Objects.requireNonNull(meseroId);
+        appendChange(new MeseroEliminado(idheladeria, meseroId)).apply();
     }
 
-    public void añadirMesa(IdHeladeria idheladeria, IdMesa idMesa, Color color, Ubicacion ubicacion){
+    public void añadirMesa(HeladeriaId idheladeria, MesaId mesaId, Color color, Ubicacion ubicacion){
         Objects.requireNonNull(idheladeria);
-        Objects.requireNonNull(idMesa);
+        Objects.requireNonNull(mesaId);
         Objects.requireNonNull(color);
         Objects.requireNonNull(ubicacion);
-        appendChange(new MesaAñadida(idheladeria,idMesa,color,ubicacion)).apply();
+        appendChange(new MesaAñadida(idheladeria, mesaId,color,ubicacion)).apply();
     }
 
-    public void eliminarMesa(IdHeladeria idheladeria, IdMesa idMesa){
+    public void eliminarMesa(HeladeriaId idheladeria, MesaId mesaId){
         Objects.requireNonNull(idheladeria);
-        Objects.requireNonNull(idMesa);
-        appendChange(new MesaEliminada(idheladeria, idMesa)).apply();
+        Objects.requireNonNull(mesaId);
+        appendChange(new MesaEliminada(idheladeria, mesaId)).apply();
     }
 
-    public void cambiarNombreHeladeria(IdHeladeria idheladeria, NombreHeladeria nombreHeladeria){
+    public void cambiarNombreHeladeria(HeladeriaId idheladeria, NombreHeladeria nombreHeladeria){
         Objects.requireNonNull(idheladeria);
         Objects.requireNonNull(nombreHeladeria);
         appendChange(new NombreHeladeriaCambiado(idheladeria, nombreHeladeria)).apply();
     }
 
-    public void cambiarTelefonoHeladeria(IdHeladeria idheladeria, TelefonoHeladeria telefonoHeladeria){
+    public void cambiarTelefonoHeladeria(HeladeriaId idheladeria, TelefonoHeladeria telefonoHeladeria){
         Objects.requireNonNull(idheladeria);
         Objects.requireNonNull(telefonoHeladeria);
         appendChange(new TelefonoHeladeriaCambiado(idheladeria, telefonoHeladeria)).apply();
     }
 
-    public IdHeladeria getIdheladeria() {
+    public HeladeriaId getIdheladeria() {
         return idheladeria;
     }
 
-    public Set<IdPedido> getIdPedidos() {
-        return idPedidos;
+    public Set<PedidoId> getIdPedidos() {
+        return pedidoIds;
     }
 
     public NombreHeladeria getNombreHeladeria() {

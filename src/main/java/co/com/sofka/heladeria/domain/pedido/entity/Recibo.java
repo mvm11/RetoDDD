@@ -1,18 +1,18 @@
 package co.com.sofka.heladeria.domain.pedido.entity;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.heladeria.domain.pedido.values.IdRecibo;
+import co.com.sofka.heladeria.domain.pedido.values.ReciboId;
 import co.com.sofka.heladeria.domain.pedido.values.Precio;
 
 import java.util.Objects;
 
 
-public class Recibo extends Entity<IdRecibo> {
+public class Recibo extends Entity<ReciboId> {
 
     private Precio precio;
 
-    public Recibo(IdRecibo idRecibo, Precio precio) {
-        super(idRecibo);
+    public Recibo(ReciboId reciboId, Precio precio) {
+        super(reciboId);
         this.precio = precio;
     }
 

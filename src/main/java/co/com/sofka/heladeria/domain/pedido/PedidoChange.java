@@ -10,7 +10,7 @@ public class PedidoChange extends EventChange {
     public PedidoChange(Pedido pedido) {
 
         apply((PedidoCreado event) -> {
-            pedido.idPedido = event.getIdPedido();
+            pedido.pedidoId = event.getIdPedido();
             pedido.fecha = event.getFecha();
             pedido.descripcion = event.getOrden();
             pedido.cliente = event.getCliente();

@@ -4,18 +4,18 @@ import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.heladeria.domain.genericvalues.Funcion;
 import co.com.sofka.heladeria.domain.genericvalues.Nombre;
 import co.com.sofka.heladeria.domain.genericvalues.Telefono;
-import co.com.sofka.heladeria.domain.heladeria.values.IdAdmin;
+import co.com.sofka.heladeria.domain.heladeria.values.AdminId;
 
 import java.util.Objects;
 
 
-public class Admin extends Entity<IdAdmin> {
+public class Admin extends Entity<AdminId> {
 
     private Nombre nombre;
     private Telefono telefono;
     private Funcion funcion;
 
-    public Admin(IdAdmin entityId, Nombre nombre, Telefono telefono, Funcion funcion) {
+    public Admin(AdminId entityId, Nombre nombre, Telefono telefono, Funcion funcion) {
         super(entityId);
         this.nombre = nombre;
         this.telefono = telefono;

@@ -4,17 +4,17 @@ import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.heladeria.domain.genericvalues.Funcion;
 import co.com.sofka.heladeria.domain.genericvalues.Nombre;
 import co.com.sofka.heladeria.domain.genericvalues.Telefono;
-import co.com.sofka.heladeria.domain.heladeria.values.IdMesero;
+import co.com.sofka.heladeria.domain.heladeria.values.MeseroId;
 
 import java.util.Objects;
 
-public class Mesero extends Entity<IdMesero> {
+public class Mesero extends Entity<MeseroId> {
 
     private Nombre nombre;
     private Telefono telefono;
     private Funcion funcion;
 
-    public Mesero(IdMesero entityId, Nombre nombre, Telefono telefono, Funcion funcion) {
+    public Mesero(MeseroId entityId, Nombre nombre, Telefono telefono, Funcion funcion) {
         super(entityId);
         this.nombre = nombre;
         this.telefono = telefono;

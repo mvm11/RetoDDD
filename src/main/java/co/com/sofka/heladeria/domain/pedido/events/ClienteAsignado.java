@@ -3,32 +3,32 @@ package co.com.sofka.heladeria.domain.pedido.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.genericvalues.Nombre;
 import co.com.sofka.heladeria.domain.genericvalues.Telefono;
-import co.com.sofka.heladeria.domain.pedido.values.IdCliente;
-import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
+import co.com.sofka.heladeria.domain.pedido.values.ClienteId;
+import co.com.sofka.heladeria.domain.pedido.values.PedidoId;
 
 public class ClienteAsignado extends DomainEvent {
 
-    private final IdPedido idPedido;
-    private final IdCliente idCliente;
+    private final PedidoId pedidoId;
+    private final ClienteId clienteId;
     private final Nombre nombre;
     private final Telefono telefono;
 
-    public ClienteAsignado(IdPedido idPedido, IdCliente idCliente, Nombre nombre, Telefono telefono) {
+    public ClienteAsignado(PedidoId pedidoId, ClienteId clienteId, Nombre nombre, Telefono telefono) {
         super("sofka.heladeria.domain.pedido.clienteasignado");
-        this.idPedido = idPedido;
-        this.idCliente = idCliente;
+        this.pedidoId = pedidoId;
+        this.clienteId = clienteId;
         this.nombre = nombre;
         this.telefono = telefono;
     }
 
 
 
-    public IdPedido getIdPedido() {
-        return idPedido;
+    public PedidoId getIdPedido() {
+        return pedidoId;
     }
 
-    public IdCliente getIdCliente() {
-        return idCliente;
+    public ClienteId getIdCliente() {
+        return clienteId;
     }
 
     public Nombre getNombre() {

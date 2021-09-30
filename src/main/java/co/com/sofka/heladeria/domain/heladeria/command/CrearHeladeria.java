@@ -1,18 +1,18 @@
 package co.com.sofka.heladeria.domain.heladeria.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
+import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
 import co.com.sofka.heladeria.domain.heladeria.values.NombreHeladeria;
 import co.com.sofka.heladeria.domain.heladeria.values.TelefonoHeladeria;
 
 public class CrearHeladeria implements Command {
 
-    private final IdHeladeria idHeladeria;
+    private final HeladeriaId heladeriaId;
     private final NombreHeladeria nombreHeladeria;
     private final TelefonoHeladeria telefonoHeladeria;
 
-    public IdHeladeria getIdHeladeria() {
-        return idHeladeria;
+    public HeladeriaId getIdHeladeria() {
+        return heladeriaId;
     }
 
     public NombreHeladeria getNombreHeladeria() {
@@ -23,8 +23,8 @@ public class CrearHeladeria implements Command {
         return telefonoHeladeria;
     }
 
-    public CrearHeladeria(IdHeladeria idHeladeria, NombreHeladeria nombreHeladeria, TelefonoHeladeria telefonoHeladeria) {
-        this.idHeladeria = idHeladeria;
+    public CrearHeladeria(HeladeriaId heladeriaId, NombreHeladeria nombreHeladeria, TelefonoHeladeria telefonoHeladeria) {
+        this.heladeriaId = heladeriaId;
         this.nombreHeladeria = nombreHeladeria;
         this.telefonoHeladeria = telefonoHeladeria;
 
