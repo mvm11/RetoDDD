@@ -13,3 +13,5 @@ DDD es necesario cuando hablamos de modelamiento del negocio para grandes organi
 Desde el punto de vista táctico, se requiere aplicar algunos conceptos fundamentales, para poder aplicar DDD. Todo esos conceptos se tiene en la librería para interfaces o abstracciones, y además de proporcional algunos patrones de diseño que se adaptan a estilos de arquitecturas deferentes.
 
 ![Dominio](Foto1.png)
+![Context Core](Foto2.png)
+![Model de Dominio](Foto3.png)
