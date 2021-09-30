@@ -1,4 +1,4 @@
-package co.com.sofka.heladeria.useCases.pedido;
+package co.com.sofka.heladeria.usecase.pedido;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
