@@ -12,4 +12,4 @@ DDD es necesario cuando hablamos de modelamiento del negocio para grandes organi
 # ¿Qué resuelve la librería?
 Desde el punto de vista táctico, se requiere aplicar algunos conceptos fundamentales, para poder aplicar DDD. Todo esos conceptos se tiene en la librería para interfaces o abstracciones, y además de proporcional algunos patrones de diseño que se adaptan a estilos de arquitecturas deferentes.
 
-![Alt text](/relative/path/to/Foto1.png?raw=true "Optional Title")
+![Dominio](Foto1.png)
