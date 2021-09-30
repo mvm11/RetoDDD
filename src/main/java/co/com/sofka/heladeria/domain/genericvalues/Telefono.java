@@ -1,30 +1,32 @@
-package co.com.sofka.heladeria.domain.genericValues;
+package co.com.sofka.heladeria.domain.genericvalues;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Funcion implements ValueObject<String> {
-
+public class Telefono implements ValueObject<String> {
     private final String value;
 
-    public Funcion(String value) {
+    public Telefono(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException("La función no puede estar vacía");
+            throw new IllegalArgumentException("El teléfono no puede estar vacio");
+        }
+        if(this.value.length()!=10){
+            throw new IllegalArgumentException("El teléfono debe tener 10 dígitos");
         }
     }
 
     public String value() {
-            return value;
-        }
+        return value;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Funcion funcion = (Funcion) o;
-        return Objects.equals(value, funcion.value);
+        Telefono that = (Telefono) o;
+        return Objects.equals(value, that.value);
     }
 
     @Override
@@ -32,4 +34,3 @@ public class Funcion implements ValueObject<String> {
         return Objects.hash(value);
     }
 }
-

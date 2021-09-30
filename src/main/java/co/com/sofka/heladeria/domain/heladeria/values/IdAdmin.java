@@ -14,4 +14,5 @@ public class IdAdmin extends Identity {
     public static IdAdmin of(String id) {
         return new IdAdmin();
     }
+
 }

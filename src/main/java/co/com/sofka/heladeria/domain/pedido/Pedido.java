@@ -2,8 +2,8 @@ package co.com.sofka.heladeria.domain.pedido;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.heladeria.domain.genericValues.Nombre;
-import co.com.sofka.heladeria.domain.genericValues.Telefono;
+import co.com.sofka.heladeria.domain.genericvalues.Nombre;
+import co.com.sofka.heladeria.domain.genericvalues.Telefono;
 import co.com.sofka.heladeria.domain.pedido.entity.Recibo;
 import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Helado;

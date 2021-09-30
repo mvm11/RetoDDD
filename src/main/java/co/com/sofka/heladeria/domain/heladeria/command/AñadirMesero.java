@@ -1,9 +1,9 @@
 package co.com.sofka.heladeria.domain.heladeria.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.heladeria.domain.genericValues.Funcion;
-import co.com.sofka.heladeria.domain.genericValues.Nombre;
-import co.com.sofka.heladeria.domain.genericValues.Telefono;
+import co.com.sofka.heladeria.domain.genericvalues.Funcion;
+import co.com.sofka.heladeria.domain.genericvalues.Nombre;
+import co.com.sofka.heladeria.domain.genericvalues.Telefono;
 import co.com.sofka.heladeria.domain.heladeria.values.IdHeladeria;
 import co.com.sofka.heladeria.domain.heladeria.values.IdMesero;
 

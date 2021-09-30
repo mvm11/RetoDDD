@@ -1,29 +1,30 @@
-package co.com.sofka.heladeria.domain.genericValues;
+package co.com.sofka.heladeria.domain.genericvalues;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Nombre implements ValueObject<String> {
+public class Funcion implements ValueObject<String> {
+
     private final String value;
 
-    public Nombre(String value) {
+    public Funcion(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            throw new IllegalArgumentException("El nombre no puede estar vacío");
+            throw new IllegalArgumentException("La función no puede estar vacía");
         }
     }
 
     public String value() {
-        return value;
-    }
+            return value;
+        }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Nombre that = (Nombre) o;
-        return Objects.equals(value, that.value);
+        Funcion funcion = (Funcion) o;
+        return Objects.equals(value, funcion.value);
     }
 
     @Override
@@ -31,3 +32,4 @@ public class Nombre implements ValueObject<String> {
         return Objects.hash(value);
     }
 }
+

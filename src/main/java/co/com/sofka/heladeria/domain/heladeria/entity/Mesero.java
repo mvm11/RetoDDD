@@ -1,9 +1,9 @@
 package co.com.sofka.heladeria.domain.heladeria.entity;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.heladeria.domain.genericValues.Funcion;
-import co.com.sofka.heladeria.domain.genericValues.Nombre;
-import co.com.sofka.heladeria.domain.genericValues.Telefono;
+import co.com.sofka.heladeria.domain.genericvalues.Funcion;
+import co.com.sofka.heladeria.domain.genericvalues.Nombre;
+import co.com.sofka.heladeria.domain.genericvalues.Telefono;
 import co.com.sofka.heladeria.domain.heladeria.values.IdMesero;
 
 import java.util.Objects;

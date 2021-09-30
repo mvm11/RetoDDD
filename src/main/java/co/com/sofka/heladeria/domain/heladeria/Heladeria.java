@@ -2,15 +2,14 @@ package co.com.sofka.heladeria.domain.heladeria;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.heladeria.domain.genericValues.Funcion;
-import co.com.sofka.heladeria.domain.genericValues.Nombre;
-import co.com.sofka.heladeria.domain.genericValues.Telefono;
+import co.com.sofka.heladeria.domain.genericvalues.Funcion;
+import co.com.sofka.heladeria.domain.genericvalues.Nombre;
+import co.com.sofka.heladeria.domain.genericvalues.Telefono;
 import co.com.sofka.heladeria.domain.heladeria.events.*;
 import co.com.sofka.heladeria.domain.heladeria.values.*;
 import co.com.sofka.heladeria.domain.heladeria.entity.Admin;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesero;
-import co.com.sofka.heladeria.domain.pedido.PedidoChange;
 import co.com.sofka.heladeria.domain.pedido.values.IdPedido;
 
 import java.util.List;
