@@ -30,7 +30,7 @@ public class HeladeriaChange extends EventChange {
         });
 
         apply((MeseroEliminado event) -> {
-            heladeria.meseros.removeIf(mesero -> mesero.equals(event.getIdMesero()));
+            heladeria.meseros.removeIf(mesero -> mesero.identity().equals(event.getIdMesero()));
         });
 
         apply((MesaAñadida event) -> {
@@ -42,7 +42,7 @@ public class HeladeriaChange extends EventChange {
         });
 
         apply((MesaEliminada event) -> {
-            heladeria.mesas.removeIf(mesa -> mesa.equals(event.getIdMesa()));
+            heladeria.mesas.removeIf(mesa -> mesa.identity().equals(event.getIdMesa()));
         });
 
         apply((NombreHeladeriaCambiado event) -> {
