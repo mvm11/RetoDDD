@@ -5,7 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.genericValues.Funcion;
 import co.com.sofka.heladeria.domain.genericValues.Nombre;
 import co.com.sofka.heladeria.domain.genericValues.Telefono;
-import co.com.sofka.heladeria.domain.heladeria.events.HeladeriaCreada;
+import co.com.sofka.heladeria.domain.heladeria.events.*;
 import co.com.sofka.heladeria.domain.heladeria.values.*;
 import co.com.sofka.heladeria.domain.heladeria.entity.Admin;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
@@ -60,7 +60,7 @@ public class Heladeria extends AggregateEvent<IdHeladeria> {
         appendChange(new MeseroAñadido(idheladeria,idMesero,nombre,telefono,funcion)).apply();
     }
 
-    public void eliminarHelado(IdHeladeria idheladeria, IdMesero idMesero){
+    public void eliminarMesero(IdHeladeria idheladeria, IdMesero idMesero){
         Objects.requireNonNull(idheladeria);
         Objects.requireNonNull(idMesero);
         appendChange(new MeseroEliminado(idheladeria, idMesero)).apply();
@@ -86,7 +86,7 @@ public class Heladeria extends AggregateEvent<IdHeladeria> {
         appendChange(new NombreHeladeriaCambiado(idheladeria, nombreHeladeria)).apply();
     }
 
-    public void cambiarNombreHeladeria(IdHeladeria idheladeria, TelefonoHeladeria telefonoHeladeria){
+    public void cambiarNombreTelefono(IdHeladeria idheladeria, TelefonoHeladeria telefonoHeladeria){
         Objects.requireNonNull(idheladeria);
         Objects.requireNonNull(telefonoHeladeria);
         appendChange(new TelefonoHeladeriaCambiado(idheladeria, telefonoHeladeria)).apply();

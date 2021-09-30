@@ -12,7 +12,7 @@ public class HeladeriaCreada extends DomainEvent {
     private final TelefonoHeladeria telefonoHeladeria;
 
     public HeladeriaCreada(IdHeladeria idHeladeria, NombreHeladeria nombreHeladeria, TelefonoHeladeria telefonoHeladeria) {
-        super("sofka.heladeria.domain.pedido.heladeriacreada");
+        super("sofka.heladeria.domain.heladeria.heladeriacreada");
         this.idHeladeria = idHeladeria;
         this.nombreHeladeria = nombreHeladeria;
         this.telefonoHeladeria = telefonoHeladeria;
