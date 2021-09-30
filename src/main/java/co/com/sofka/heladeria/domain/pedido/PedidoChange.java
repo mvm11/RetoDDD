@@ -25,7 +25,7 @@ public class PedidoChange extends EventChange {
         });
 
         apply((HeladoEliminado event) -> {
-            pedido.helado.removeIf(helado -> helado.equals(event.getIdHelado()));
+            pedido.helado.removeIf(helado -> helado.identity().equals(event.getIdHelado()));
         });
 
         apply((ClienteAsignado event) -> {
