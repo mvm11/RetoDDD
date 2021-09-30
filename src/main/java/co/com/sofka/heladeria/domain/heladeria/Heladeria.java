@@ -87,7 +87,7 @@ public class Heladeria extends AggregateEvent<IdHeladeria> {
         appendChange(new NombreHeladeriaCambiado(idheladeria, nombreHeladeria)).apply();
     }
 
-    public void cambiarNombreTelefono(IdHeladeria idheladeria, TelefonoHeladeria telefonoHeladeria){
+    public void cambiarTelefonoHeladeria(IdHeladeria idheladeria, TelefonoHeladeria telefonoHeladeria){
         Objects.requireNonNull(idheladeria);
         Objects.requireNonNull(telefonoHeladeria);
         appendChange(new TelefonoHeladeriaCambiado(idheladeria, telefonoHeladeria)).apply();
