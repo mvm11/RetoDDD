@@ -49,7 +49,7 @@ public class AsignarAdminUseCaseTest  {
 
         var response = UseCaseHandler
                 .getInstance()
-                .setIdentifyExecutor("41")
+                .setIdentifyExecutor("1")
                 .syncExecutor(asignarAdminUseCase, new RequestCommand<>(command))
                 .orElseThrow();
 

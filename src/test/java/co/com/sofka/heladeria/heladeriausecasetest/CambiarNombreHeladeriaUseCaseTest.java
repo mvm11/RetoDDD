@@ -36,7 +36,7 @@ public class CambiarNombreHeladeriaUseCaseTest {
     }
 
     @Test
-    public void cambiarNombreHeladeria() {
+     void cambiarNombreHeladeria() {
 
         var command = new CambiarNombreHeladeria(
                 HeladeriaId.of("11"),
