@@ -13,13 +13,8 @@ public class Fecha implements ValueObject<String> {
     private final String value;
 
     public Fecha(int day, int month, int year) {
-        try{
-            date = LocalDate.of(year,month,day);
-            if(date.isBefore(LocalDate.now())){
-                throw new IllegalArgumentException("Fecha es anterior a la actual");}
-        }catch (DateTimeException ex){
-            throw  new IllegalArgumentException(ex.getMessage());
-        }
+
+        date = LocalDate.of(year,month,day);
         value = generarFormato();
     }
 

@@ -31,7 +31,7 @@ public class PedidoCreado extends DomainEvent {
         return fecha;
     }
 
-    public Descripcion getOrden() {
+    public Descripcion getDescripcion() {
         return descripcion;
     }
 
