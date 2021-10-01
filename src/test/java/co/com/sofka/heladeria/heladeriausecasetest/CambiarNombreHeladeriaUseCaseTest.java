@@ -6,10 +6,12 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.heladeria.command.CambiarNombreHeladeria;
 import co.com.sofka.heladeria.domain.heladeria.events.HeladeriaCreada;
+import co.com.sofka.heladeria.domain.heladeria.events.NombreHeladeriaCambiado;
 import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
 import co.com.sofka.heladeria.domain.heladeria.values.NombreHeladeria;
 import co.com.sofka.heladeria.domain.heladeria.values.TelefonoHeladeria;
 import co.com.sofka.heladeria.usecase.heladeria.CambiarNombreHeladeriaUseCase;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -48,6 +50,9 @@ public class CambiarNombreHeladeriaUseCaseTest {
                 .setIdentifyExecutor("11")
                 .syncExecutor(cambiarNombreHeladeriaUseCase, new RequestCommand<>(command))
                 .orElseThrow();
+        var events = response.getDomainEvents();
+        NombreHeladeriaCambiado nombreHeladeriaCambiado = (NombreHeladeriaCambiado) events.get(0);
+        Assertions.assertEquals("Soft Touch", nombreHeladeriaCambiado.getNombreHeladeria().value());
     }
 
     private List<DomainEvent> events() {
