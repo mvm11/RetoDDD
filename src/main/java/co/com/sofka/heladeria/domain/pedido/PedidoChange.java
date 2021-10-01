@@ -28,6 +28,7 @@ public class PedidoChange extends EventChange {
         });
 
         apply((HeladoEliminado event) -> {
+            pedido.helado = new ArrayList<>();
             pedido.helado.removeIf(helado -> helado.identity().equals(event.getIdHelado()));
         });
 

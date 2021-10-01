@@ -45,8 +45,8 @@ public class Pedido extends AggregateEvent<PedidoId> {
         appendChange(new HeladoAñadido(pedidoId, heladoId, sabor)).apply();
     }
 
-    public void eliminarHelado(PedidoId pedidoId, HeladoId heladoId, Sabor sabor){
-        appendChange(new HeladoEliminado(pedidoId, heladoId, sabor)).apply();
+    public void eliminarHelado(PedidoId pedidoId, HeladoId heladoId){
+        appendChange(new HeladoEliminado(pedidoId, heladoId)).apply();
     }
 
     public void asignarCliente(PedidoId pedidoId, ClienteId clienteId, Nombre nombre, Telefono telefono){

@@ -9,13 +9,11 @@ public class HeladoEliminado extends DomainEvent {
 
     private final PedidoId pedidoId;
     private final HeladoId heladoId;
-    private final Sabor sabor;
 
-    public HeladoEliminado(PedidoId pedidoId, HeladoId heladoId, Sabor sabor) {
+    public HeladoEliminado(PedidoId pedidoId, HeladoId heladoId) {
         super("sofka.heladeria.domain.pedido.heladoeliminado");
         this.pedidoId = pedidoId;
         this.heladoId = heladoId;
-        this.sabor = sabor;
     }
 
     public PedidoId getIdPedido() {
@@ -24,10 +22,6 @@ public class HeladoEliminado extends DomainEvent {
 
     public HeladoId getIdHelado() {
         return heladoId;
-    }
-
-    public Sabor getSabor() {
-        return sabor;
     }
 }
 

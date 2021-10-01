@@ -12,7 +12,7 @@ public class EliminarHeladoUseCase extends UseCase<RequestCommand<EliminarHelado
     public void executeUseCase(RequestCommand<EliminarHelado> eliminarHeladoRequestCommand) {
         var command = eliminarHeladoRequestCommand.getCommand();
         var pedido = Pedido.from(command.getIdPedido(), retrieveEvents(command.getIdHelado().value()));
-        pedido.eliminarHelado(command.getIdPedido(), command.getIdHelado(), command.getSabor());
+        pedido.eliminarHelado(command.getIdPedido(), command.getIdHelado());
         emit().onSuccess(new ResponseEvents(pedido.getUncommittedChanges()));
     }
 }
