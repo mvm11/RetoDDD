@@ -5,7 +5,6 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.heladeria.command.AñadirMesa;
-import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
 import co.com.sofka.heladeria.domain.heladeria.events.HeladeriaCreada;
 import co.com.sofka.heladeria.domain.heladeria.events.MesaAñadida;
 import co.com.sofka.heladeria.domain.heladeria.values.*;

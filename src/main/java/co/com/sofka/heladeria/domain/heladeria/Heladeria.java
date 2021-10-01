@@ -50,13 +50,12 @@ public class Heladeria extends AggregateEvent<HeladeriaId> {
         appendChange(new AdminAsignado(adminId,nombre,telefono,funcion)).apply();
     }
 
-    public void añadirMesero(HeladeriaId idheladeria, MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion){
-        Objects.requireNonNull(idheladeria);
+    public void añadirMesero(MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion){
         Objects.requireNonNull(meseroId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(telefono);
         Objects.requireNonNull(funcion);
-        appendChange(new MeseroAñadido(idheladeria, meseroId,nombre,telefono,funcion)).apply();
+        appendChange(new MeseroAñadido(meseroId,nombre,telefono,funcion)).apply();
     }
 
     public void eliminarMesero(HeladeriaId idheladeria, MeseroId meseroId){

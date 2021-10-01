@@ -12,7 +12,7 @@ public class CambiarTelefonoHeladeriaUseCase extends UseCase<RequestCommand<Camb
     @Override
     public void executeUseCase(RequestCommand<CambiarTelefonoHeladeria> cambiarTelefonoHeladeriaRequestCommand) {
         var command = cambiarTelefonoHeladeriaRequestCommand.getCommand();
-        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents(command.getTelefonoHeladeria().value()));
+        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents(command.getIdheladeria().value()));
         heladeria.cambiarTelefonoHeladeria(command.getIdheladeria(), command.getTelefonoHeladeria());
         emit().onSuccess(new ResponseEvents(heladeria.getUncommittedChanges()));
     }

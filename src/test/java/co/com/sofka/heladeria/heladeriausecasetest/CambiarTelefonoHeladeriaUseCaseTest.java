@@ -12,7 +12,6 @@ import co.com.sofka.heladeria.domain.heladeria.events.TelefonoHeladeriaCambiado;
 import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
 import co.com.sofka.heladeria.domain.heladeria.values.NombreHeladeria;
 import co.com.sofka.heladeria.domain.heladeria.values.TelefonoHeladeria;
-import co.com.sofka.heladeria.usecase.heladeria.CambiarNombreHeladeriaUseCase;
 import co.com.sofka.heladeria.usecase.heladeria.CambiarTelefonoHeladeriaUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +19,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

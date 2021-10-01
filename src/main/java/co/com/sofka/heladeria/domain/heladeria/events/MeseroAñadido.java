@@ -9,24 +9,19 @@ import co.com.sofka.heladeria.domain.heladeria.values.MeseroId;
 
 public class MeseroAñadido extends DomainEvent {
 
-    private final HeladeriaId idheladeria;
     private final MeseroId meseroId;
     private final Nombre nombre;
     private final Telefono telefono;
     private final Funcion funcion;
 
-    public MeseroAñadido(HeladeriaId idheladeria, MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion) {
+    public MeseroAñadido(MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion) {
         super("sofka.heladeria.heladeria.pedido.meseroañadido");
-        this.idheladeria = idheladeria;
         this.meseroId = meseroId;
         this.nombre = nombre;
         this.telefono = telefono;
         this.funcion = funcion;
     }
 
-    public HeladeriaId getIdheladeria() {
-        return idheladeria;
-    }
 
     public MeseroId getIdMesero() {
         return meseroId;
