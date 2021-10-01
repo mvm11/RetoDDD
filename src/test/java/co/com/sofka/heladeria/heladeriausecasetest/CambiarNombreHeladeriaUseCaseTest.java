@@ -43,7 +43,7 @@ public class CambiarNombreHeladeriaUseCaseTest {
                 new NombreHeladeria("Soft Touch")
         );
 
-        when(repository.getEventsBy(any())).thenReturn(events());
+        when(repository.getEventsBy("11")).thenReturn(events());
 
         var response = UseCaseHandler
                 .getInstance()
