@@ -5,6 +5,8 @@ import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.entity.Helado;
 import co.com.sofka.heladeria.domain.pedido.events.*;
 
+import java.util.ArrayList;
+
 public class PedidoChange extends EventChange {
 
     public PedidoChange(Pedido pedido) {
@@ -17,6 +19,7 @@ public class PedidoChange extends EventChange {
         });
 
         apply((HeladoAñadido event) -> {
+            pedido.helado = new ArrayList<>();
             int numHelados = pedido.helado.size();
             if (numHelados == 5) {
                 throw new IllegalArgumentException("No puedes agregar más de 5 helados");
