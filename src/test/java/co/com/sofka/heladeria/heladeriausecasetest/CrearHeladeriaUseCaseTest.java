@@ -36,7 +36,6 @@ public class CrearHeladeriaUseCaseTest {
                 .setIdentifyExecutor("13")
                 .syncExecutor(crearHeladeriaUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-
         List<DomainEvent> events = response.getDomainEvents();
         HeladeriaCreada heladeriaCreada = (HeladeriaCreada) events.get(0);
         Assertions.assertEquals("Crepes & Waffles", heladeriaCreada.getNombreHeladeria().value());

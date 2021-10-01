@@ -11,8 +11,8 @@ public class AñadirMesaUseCase extends UseCase<RequestCommand<AñadirMesa>, Res
     @Override
     public void executeUseCase(RequestCommand<AñadirMesa> añadirMesaRequestCommand) {
         var command = añadirMesaRequestCommand.getCommand();
-        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents(command.getIdMesa().value()));
-        heladeria.añadirMesa(command.getIdheladeria(), command.getIdMesa(), command.getColor(), command.getUbicacion());
+        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents(command.getIdheladeria().value()));
+        heladeria.añadirMesa(command.getIdMesa(), command.getColor(), command.getUbicacion());
         emit().onSuccess(new ResponseEvents(heladeria.getUncommittedChanges()));
     }
 }

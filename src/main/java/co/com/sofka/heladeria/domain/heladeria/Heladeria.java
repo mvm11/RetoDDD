@@ -42,13 +42,12 @@ public class Heladeria extends AggregateEvent<HeladeriaId> {
         return heladeria;
     }
 
-    public void asignarAdmin(HeladeriaId idheladeria, AdminId adminId, Nombre nombre, Telefono telefono, Funcion funcion){
-        Objects.requireNonNull(idheladeria);
+    public void asignarAdmin(AdminId adminId, Nombre nombre, Telefono telefono, Funcion funcion){
         Objects.requireNonNull(adminId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(telefono);
         Objects.requireNonNull(funcion);
-        appendChange(new AdminAsignado(idheladeria, adminId,nombre,telefono,funcion)).apply();
+        appendChange(new AdminAsignado(adminId,nombre,telefono,funcion)).apply();
     }
 
     public void añadirMesero(HeladeriaId idheladeria, MeseroId meseroId, Nombre nombre, Telefono telefono, Funcion funcion){
@@ -66,12 +65,11 @@ public class Heladeria extends AggregateEvent<HeladeriaId> {
         appendChange(new MeseroEliminado(idheladeria, meseroId)).apply();
     }
 
-    public void añadirMesa(HeladeriaId idheladeria, MesaId mesaId, Color color, Ubicacion ubicacion){
-        Objects.requireNonNull(idheladeria);
+    public void añadirMesa(MesaId mesaId, Color color, Ubicacion ubicacion){
         Objects.requireNonNull(mesaId);
         Objects.requireNonNull(color);
         Objects.requireNonNull(ubicacion);
-        appendChange(new MesaAñadida(idheladeria, mesaId,color,ubicacion)).apply();
+        appendChange(new MesaAñadida(mesaId,color,ubicacion)).apply();
     }
 
     public void eliminarMesa(HeladeriaId idheladeria, MesaId mesaId){

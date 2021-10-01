@@ -5,6 +5,8 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.heladeria.command.AñadirMesa;
+import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
+import co.com.sofka.heladeria.domain.heladeria.events.HeladeriaCreada;
 import co.com.sofka.heladeria.domain.heladeria.events.MesaAñadida;
 import co.com.sofka.heladeria.domain.heladeria.values.*;
 import co.com.sofka.heladeria.usecase.heladeria.AñadirMesaUseCase;
@@ -16,9 +18,9 @@ import org.mockito.Mock;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class AñadirMesaUseCaseTest {
-
     private AñadirMesaUseCase añadirMesaUseCase;
 
     @Mock
@@ -33,23 +35,37 @@ public class AñadirMesaUseCaseTest {
 
         @Test
         public void añadirMesa(){
-            var command = new AñadirMesa(
-                    HeladeriaId.of("22"),
-                    MesaId.of("2"),
-        new Color("Azul"),
-        new Ubicacion("Esquina superior Izquierda"));
 
-            var response = UseCaseHandler
-                    .getInstance()
-                    .setIdentifyExecutor("2")
-                    .syncExecutor(añadirMesaUseCase, new RequestCommand<>(command))
-                    .orElseThrow();
+        //Arrange
+        var command = new AñadirMesa(
+                HeladeriaId.of("22"),
+                new MesaId("2"),
+                new Color("Azul"),
+                new Ubicacion("Esquina superior Izquierda"));
+        when(repository.getEventsBy("22")).thenReturn(events());
 
-            List<DomainEvent> events = response.getDomainEvents();
+        // Act
+        var response = UseCaseHandler
+                .getInstance()
+                .setIdentifyExecutor("22")
+                .syncExecutor(añadirMesaUseCase, new RequestCommand<>(command))
+                .orElseThrow();
+        var events = response.getDomainEvents();
 
-            MesaAñadida mesaAñadida = (MesaAñadida)events.get(0);
-            Assertions.assertEquals("Azul", mesaAñadida.getColor().value());
-            Assertions.assertEquals("squina superior Izquierda", mesaAñadida.getUbicacion().value());
+        //Asserts
+        MesaAñadida mesaAñadida = (MesaAñadida)events.get(0);
+        Assertions.assertEquals("2", mesaAñadida.getIdMesa().value());
+        Assertions.assertEquals("Azul", mesaAñadida.getColor().value());
+        Assertions.assertEquals("Esquina superior Izquierda", mesaAñadida.getUbicacion().value());
+    }
+
+    private List<DomainEvent> events() {
+        return List.of(new HeladeriaCreada(
+                HeladeriaId.of("9"),
+                new NombreHeladeria("ARTE DOLCE"),
+                new TelefonoHeladeria("3147449819")
+        )
+        );
     }
 }
 

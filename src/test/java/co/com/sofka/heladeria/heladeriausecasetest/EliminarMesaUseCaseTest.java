@@ -6,16 +6,16 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.heladeria.domain.heladeria.command.EliminarMesa;
-import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
 import co.com.sofka.heladeria.domain.heladeria.events.HeladeriaCreada;
+import co.com.sofka.heladeria.domain.heladeria.events.MesaAñadida;
 import co.com.sofka.heladeria.domain.heladeria.events.MesaEliminada;
 import co.com.sofka.heladeria.domain.heladeria.values.*;
 import co.com.sofka.heladeria.usecase.heladeria.EliminarMesaUseCase;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
@@ -37,38 +37,39 @@ public class EliminarMesaUseCaseTest{
 
     @Test
     public void eliminarMesa(){
-        List<Mesa> mesas = new ArrayList<>();
-        mesas.add(new Mesa(
-                MesaId.of("1"),
-                new Color("Rojo"),
-                new Ubicacion("Esquina inferior derecha")));
-        when(repository.getEventsBy("4")).thenReturn(events());
-
-        var command = new RequestCommand<>(
-                new EliminarMesa(
+        //Arrange
+        var command = new EliminarMesa(
                         HeladeriaId.of("4"),
-                        MesaId.of("4")));
+                        new MesaId("4"));
+        when(repository.getEventsBy("4")).thenReturn(events());
 
         var response = UseCaseHandler
                 .getInstance()
                 .setIdentifyExecutor("4")
-                .syncExecutor(eliminarMesaUseCase, command)
+                .syncExecutor(eliminarMesaUseCase, new RequestCommand<>(command))
                 .orElseThrow();
 
         var events = response.getDomainEvents();
         MesaEliminada mesaEliminada = (MesaEliminada) events.get(0);
+
+        Assertions.assertEquals("4", mesaEliminada.getIdMesa().value());
     }
 
     private List<DomainEvent> events() {
-        List<Mesa> mesas = new ArrayList<>();
-        mesas.add(new Mesa(
-                MesaId.of("1"),
-                new Color("Rojo"),
-                new Ubicacion("Esquina inferior derecha")));
-        return List.of(new HeladeriaCreada(HeladeriaId.of("4"),
-                new NombreHeladeria("Cono de nieve"),
-                new TelefonoHeladeria("1234567890")
-                ));
+       return List.of(
+
+        // se crea heladeria
+        new HeladeriaCreada(
+                HeladeriaId.of("9"),
+                new NombreHeladeria("ARTE DOLCE"),
+                new TelefonoHeladeria("3147449819")
+                ),
+                new MesaAñadida(
+                                new MesaId("4"),
+                                new Color("Rojo"),
+                                new Ubicacion("Esquina inferior derecha"))
+       );
+
     }
 }
 

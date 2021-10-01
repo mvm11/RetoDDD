@@ -11,7 +11,7 @@ public class EliminarMesaUseCase extends UseCase<RequestCommand<EliminarMesa>, R
     @Override
     public void executeUseCase(RequestCommand<EliminarMesa> eliminarMesaRequestCommand) {
         var command = eliminarMesaRequestCommand.getCommand();
-        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents(command.getIdMesa().value()));
+        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents(command.getIdheladeria().value()));
         heladeria.eliminarMesa(command.getIdheladeria(), command.getIdMesa());
         emit().onSuccess(new ResponseEvents(heladeria.getUncommittedChanges()));
     }

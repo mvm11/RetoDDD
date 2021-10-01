@@ -10,7 +10,8 @@ public class HeladeriaId extends Identity {
         super(id);
     }
     public static HeladeriaId of(String id) {
-        return new HeladeriaId();
+
+        return new HeladeriaId(id);
     }
 
 }

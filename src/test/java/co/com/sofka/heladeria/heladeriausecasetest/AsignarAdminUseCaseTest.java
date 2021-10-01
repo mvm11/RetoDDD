@@ -20,6 +20,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import java.util.List;
 import static org.mockito.Mockito.mock;
@@ -45,11 +46,10 @@ public class AsignarAdminUseCaseTest  {
         //Arrange
         var command = new AsignarAdmin(
                 HeladeriaId.of("41"),
-                AdminId.of("1"),
+                new AdminId("1"),
                 new Nombre("Fausto"),
                 new Telefono("3112304564"),
                 new Funcion("Pagar salarios"));
-
         when(repository.getEventsBy("41")).thenReturn(events());
 
         //Act

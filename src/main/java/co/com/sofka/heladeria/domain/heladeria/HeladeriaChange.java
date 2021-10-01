@@ -6,6 +6,8 @@ import co.com.sofka.heladeria.domain.heladeria.entity.Mesa;
 import co.com.sofka.heladeria.domain.heladeria.entity.Mesero;
 import co.com.sofka.heladeria.domain.heladeria.events.*;
 
+import java.util.ArrayList;
+
 
 public class HeladeriaChange extends EventChange {
 
@@ -15,6 +17,8 @@ public class HeladeriaChange extends EventChange {
             heladeria.idheladeria = event.getIdHeladeria();
             heladeria.nombreHeladeria = event.getNombreHeladeria();
             heladeria.telefonoHeladeria = event.getTelefonoHeladeria();
+            heladeria.mesas = new ArrayList<>();
+            heladeria.meseros = new ArrayList<>();
         });
 
         apply((AdminAsignado event) -> {
@@ -34,10 +38,8 @@ public class HeladeriaChange extends EventChange {
         });
 
         apply((MesaAñadida event) -> {
-            int numMesas = heladeria.meseros.size();
-            if (numMesas == 8) {
-                throw new IllegalArgumentException("No puedes agregar más de 8 mesas");
-            }
+            heladeria.mesas.add(new Mesa(event.getIdMesa(), event.getColor(), event.getUbicacion()));
+            heladeria.mesas.add(new Mesa(event.getIdMesa(), event.getColor(), event.getUbicacion()));
             heladeria.mesas.add(new Mesa(event.getIdMesa(), event.getColor(), event.getUbicacion()));
         });
 
