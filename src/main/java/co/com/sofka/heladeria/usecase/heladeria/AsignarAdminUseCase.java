@@ -11,8 +11,7 @@ public class AsignarAdminUseCase extends UseCase<RequestCommand<AsignarAdmin>, R
     @Override
     public void executeUseCase(RequestCommand<AsignarAdmin> asignarAdminRequestCommand) {
         var command = asignarAdminRequestCommand.getCommand();
-        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents());
-            
+        var heladeria = Heladeria.from(command.getIdheladeria(), retrieveEvents(command.getIdheladeria().value()));
         heladeria.asignarAdmin(command.getIdheladeria(), command.getIdAdmin(), command.getNombre(), command.getTelefono(), command.getFuncion());
         emit().onSuccess(new ResponseEvents(heladeria.getUncommittedChanges()));
     }
