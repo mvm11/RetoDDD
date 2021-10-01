@@ -54,12 +54,10 @@ public class AsignarAdminUseCaseTest  {
                 .orElseThrow();
 
         List<DomainEvent> events = response.getDomainEvents();
-
         AdminAsignado adminAsignado = (AdminAsignado) events.get(0);
         Assertions.assertEquals("Fausto", adminAsignado.getNombre().value());
         Assertions.assertEquals("3112304564", adminAsignado.getTelefono().value());
         Assertions.assertEquals("Pagar salarios", adminAsignado.getFuncion().value());
-
      }
 }
 

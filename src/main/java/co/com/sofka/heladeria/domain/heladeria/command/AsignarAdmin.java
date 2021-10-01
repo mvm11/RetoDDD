@@ -7,6 +7,7 @@ import co.com.sofka.heladeria.domain.genericvalues.Telefono;
 import co.com.sofka.heladeria.domain.heladeria.values.AdminId;
 import co.com.sofka.heladeria.domain.heladeria.values.HeladeriaId;
 
+
 public class AsignarAdmin implements Command {
 
     private final HeladeriaId idheladeria;
@@ -42,4 +43,5 @@ public class AsignarAdmin implements Command {
     public Funcion getFuncion() {
         return funcion;
     }
+
 }

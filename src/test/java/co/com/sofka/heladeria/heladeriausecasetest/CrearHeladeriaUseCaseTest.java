@@ -1,6 +1,5 @@
 package co.com.sofka.heladeria.heladeriausecasetest;
 
-
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -38,10 +37,9 @@ public class CrearHeladeriaUseCaseTest {
                 .syncExecutor(crearHeladeriaUseCase, new RequestCommand<>(command))
                 .orElseThrow();
 
-
         List<DomainEvent> events = response.getDomainEvents();
         HeladeriaCreada heladeriaCreada = (HeladeriaCreada) events.get(0);
         Assertions.assertEquals("Crepes & Waffles", heladeriaCreada.getNombreHeladeria().value());
-        Assertions.assertEquals("3003452213", heladeriaCreada.getIdHeladeria().value());
+        Assertions.assertEquals("3003452213", heladeriaCreada.getTelefonoHeladeria().value());
     }
 }
