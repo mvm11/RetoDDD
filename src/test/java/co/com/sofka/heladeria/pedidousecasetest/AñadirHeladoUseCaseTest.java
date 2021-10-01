@@ -4,15 +4,17 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.heladeria.domain.genericvalues.Nombre;
+import co.com.sofka.heladeria.domain.genericvalues.Telefono;
 import co.com.sofka.heladeria.domain.heladeria.command.AñadirMesa;
 import co.com.sofka.heladeria.domain.heladeria.events.HeladeriaCreada;
 import co.com.sofka.heladeria.domain.heladeria.events.MesaAñadida;
 import co.com.sofka.heladeria.domain.heladeria.values.*;
 import co.com.sofka.heladeria.domain.pedido.command.AñadirHelado;
+import co.com.sofka.heladeria.domain.pedido.entity.Cliente;
 import co.com.sofka.heladeria.domain.pedido.events.HeladoAñadido;
-import co.com.sofka.heladeria.domain.pedido.values.HeladoId;
-import co.com.sofka.heladeria.domain.pedido.values.PedidoId;
-import co.com.sofka.heladeria.domain.pedido.values.Sabor;
+import co.com.sofka.heladeria.domain.pedido.events.PedidoCreado;
+import co.com.sofka.heladeria.domain.pedido.values.*;
 import co.com.sofka.heladeria.usecase.heladeria.AñadirMesaUseCase;
 import co.com.sofka.heladeria.usecase.pedido.AñadirHeladoUseCase;
 import org.junit.jupiter.api.Assertions;
@@ -62,11 +64,15 @@ public class AñadirHeladoUseCaseTest {
     }
 
     private List<DomainEvent> events() {
-        return List.of(new HeladeriaCreada(
-                HeladeriaId.of("9"),
-                new NombreHeladeria("ARTE DOLCE"),
-                new TelefonoHeladeria("3147449819")
-        )
+        return List.of(new PedidoCreado(
+                PedidoId.of("9"),
+                new Fecha(01, 10, 2021),
+                new Descripcion("chocolate"),
+                new Cliente(
+                        new ClienteId("1"),
+                        new Nombre("Liz"),
+                        new Telefono("3216107878")
+                ))
         );
     }
 }
