@@ -13,7 +13,6 @@ public class CambiarDescripcionUseCase extends UseCase<TriggeredEvent<Descripcio
     public void executeUseCase(TriggeredEvent<DescripcionCambiada> descripcionCambiadaTriggeredEvent) {
         var event = descripcionCambiadaTriggeredEvent.getDomainEvent();
         var pedido = Pedido.from(PedidoId.of(event.aggregateRootId()), retrieveEvents());
-
         pedido.cambiarDescripcion(event.getIdPedido(), event.getDescripcionPedido());
         emit().onSuccess(new ResponseEvents(pedido.getUncommittedChanges()));
     }
